@@ -3,6 +3,7 @@ using System.Speech.Synthesis;
 using System.Diagnostics;
 using System.Media;
 using Prototip.Buttons;
+using System.Windows.Forms;
 
 namespace Prototip
 {
@@ -14,6 +15,7 @@ namespace Prototip
         public Form1()
         {
             InitializeComponent();
+            AddRescueEquipmentButtons();
         }
 
         private void printByPrinterButton_Click(object sender, EventArgs e)
@@ -32,12 +34,13 @@ namespace Prototip
             print.print(data);
         }
 
-        public void textToSpeechButton_Click(object sender, EventArgs e)
+        public void TextToSpeechButton_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> data = new Dictionary<string, string>
             {
                 ["address"] = address.Text,
                 ["typeOfIncident"] = typeOfIncident.Text,
+                ["buttonVoicing"] = ((Button)sender).Tag.ToString()
             };
 
             textToSpeech.textToSpeech(data);
@@ -48,11 +51,36 @@ namespace Prototip
             new Form2(this).Show();
         }
 
-        private void button22345_Click(object sender, EventArgs e)
+        public void AddRescueEquipmentButtons()
         {
-            Button test = new Button();
-            Controls.Add(test);
-            tableLayoutPanel8.Controls.Add(test, 2, 0);
+            BDconnection con = new BDconnection();
+            List<RescueEquipmentButton> buttonsData = con.SelectButtons();
+
+            tableLayoutPanel14.RowStyles[0] = new RowStyle(SizeType.Absolute, 46F);
+
+            foreach (RescueEquipmentButton buttonData in buttonsData)
+            {
+                Button button = new Button();
+                button.Anchor = AnchorStyles.Bottom;
+                button.Location = new Point(51, 6);
+                button.Margin = new Padding(3, 4, 3, 4);
+                button.MinimumSize = new Size(126, 36);
+                button.Name = buttonData.Name;
+                button.Size = new Size(126, 36);
+                button.TabIndex = 32;
+                button.Text = buttonData.Name;
+                button.Tag = buttonData.Voicing;
+                button.UseVisualStyleBackColor = true;
+                button.Click += TextToSpeechButton_Click;
+
+                if (buttonsData.IndexOf(buttonData) != 0)
+                {
+                    tableLayoutPanel13.ColumnCount += 1;
+                }
+
+                tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+                tableLayoutPanel13.Controls.Add(button, 0, 0);
+            }
         }
     }
 }

@@ -57,7 +57,7 @@
             tableLayoutPanel8 = new TableLayoutPanel();
             printByPrinterButton = new Button();
             textToSpeechButton = new Button();
-            button22345 = new Button();
+            tableLayoutPanel13 = new TableLayoutPanel();
             fileSystemWatcher1 = new FileSystemWatcher();
             menuStrip1 = new MenuStrip();
             Settings = new ToolStripMenuItem();
@@ -82,7 +82,7 @@
             address.Location = new Point(3, 52);
             address.Margin = new Padding(3, 4, 3, 4);
             address.Name = "address";
-            address.Size = new Size(397, 27);
+            address.Size = new Size(446, 27);
             address.TabIndex = 3;
             address.Text = "сп. Поселение ул. Уличная д. 1111";
             // 
@@ -102,7 +102,7 @@
             typeOfIncident.Location = new Point(3, 52);
             typeOfIncident.Margin = new Padding(3, 4, 3, 4);
             typeOfIncident.Name = "typeOfIncident";
-            typeOfIncident.Size = new Size(397, 27);
+            typeOfIncident.Size = new Size(447, 27);
             typeOfIncident.TabIndex = 5;
             typeOfIncident.Text = "Горит частный дом";
             // 
@@ -152,7 +152,7 @@
             fio.Location = new Point(3, 52);
             fio.Margin = new Padding(3, 4, 3, 4);
             fio.Name = "fio";
-            fio.Size = new Size(397, 27);
+            fio.Size = new Size(446, 27);
             fio.TabIndex = 14;
             fio.Text = "Иванов Иван Иванович";
             // 
@@ -162,7 +162,7 @@
             number.Location = new Point(3, 52);
             number.Margin = new Padding(3, 4, 3, 4);
             number.Name = "number";
-            number.Size = new Size(397, 27);
+            number.Size = new Size(447, 27);
             number.TabIndex = 15;
             number.Text = "8 800 555 35 35";
             // 
@@ -179,7 +179,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(403, 96);
+            tableLayoutPanel1.Size = new Size(452, 97);
             tableLayoutPanel1.TabIndex = 20;
             // 
             // tableLayoutPanel2
@@ -189,13 +189,13 @@
             tableLayoutPanel2.Controls.Add(label3, 0, 0);
             tableLayoutPanel2.Controls.Add(typeOfIncident, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(412, 4);
+            tableLayoutPanel2.Location = new Point(461, 4);
             tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(403, 96);
+            tableLayoutPanel2.Size = new Size(453, 97);
             tableLayoutPanel2.TabIndex = 21;
             // 
             // tableLayoutPanel4
@@ -211,7 +211,7 @@
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new Size(403, 96);
+            tableLayoutPanel4.Size = new Size(452, 97);
             tableLayoutPanel4.TabIndex = 23;
             // 
             // tableLayoutPanel5
@@ -221,13 +221,13 @@
             tableLayoutPanel5.Controls.Add(label8, 0, 0);
             tableLayoutPanel5.Controls.Add(number, 0, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(412, 4);
+            tableLayoutPanel5.Location = new Point(461, 4);
             tableLayoutPanel5.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Size = new Size(403, 96);
+            tableLayoutPanel5.Size = new Size(453, 97);
             tableLayoutPanel5.TabIndex = 24;
             // 
             // tableLayoutPanel6
@@ -266,7 +266,7 @@
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 1;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(403, 98);
+            tableLayoutPanel9.Size = new Size(452, 99);
             tableLayoutPanel9.TabIndex = 26;
             // 
             // label1
@@ -283,7 +283,7 @@
             // timeMinutes
             // 
             timeMinutes.Anchor = AnchorStyles.None;
-            timeMinutes.Location = new Point(281, 35);
+            timeMinutes.Location = new Point(281, 36);
             timeMinutes.Name = "timeMinutes";
             timeMinutes.Size = new Size(24, 27);
             timeMinutes.TabIndex = 32;
@@ -292,7 +292,7 @@
             // timeHours
             // 
             timeHours.Anchor = AnchorStyles.None;
-            timeHours.Location = new Point(233, 35);
+            timeHours.Location = new Point(233, 36);
             timeHours.Name = "timeHours";
             timeHours.Size = new Size(24, 27);
             timeHours.TabIndex = 32;
@@ -308,12 +308,12 @@
             tableLayoutPanel10.Controls.Add(label6, 0, 0);
             tableLayoutPanel10.Controls.Add(dateOfReceipt, 1, 0);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(412, 4);
+            tableLayoutPanel10.Location = new Point(461, 4);
             tableLayoutPanel10.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 1;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Size = new Size(403, 98);
+            tableLayoutPanel10.Size = new Size(453, 99);
             tableLayoutPanel10.TabIndex = 27;
             // 
             // label6
@@ -329,7 +329,7 @@
             // dateOfReceipt
             // 
             dateOfReceipt.Anchor = AnchorStyles.Left;
-            dateOfReceipt.Location = new Point(58, 35);
+            dateOfReceipt.Location = new Point(58, 36);
             dateOfReceipt.Name = "dateOfReceipt";
             dateOfReceipt.Size = new Size(184, 27);
             dateOfReceipt.TabIndex = 29;
@@ -347,7 +347,7 @@
             tableLayoutPanel11.Name = "tableLayoutPanel11";
             tableLayoutPanel11.RowCount = 1;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel11.Size = new Size(818, 104);
+            tableLayoutPanel11.Size = new Size(917, 105);
             tableLayoutPanel11.TabIndex = 28;
             // 
             // tableLayoutPanel12
@@ -358,31 +358,34 @@
             tableLayoutPanel12.Controls.Add(tableLayoutPanel4, 0, 0);
             tableLayoutPanel12.Controls.Add(tableLayoutPanel5, 1, 0);
             tableLayoutPanel12.Dock = DockStyle.Fill;
-            tableLayoutPanel12.Location = new Point(3, 116);
+            tableLayoutPanel12.Location = new Point(3, 117);
             tableLayoutPanel12.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel12.Name = "tableLayoutPanel12";
             tableLayoutPanel12.RowCount = 1;
             tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel12.Size = new Size(818, 104);
+            tableLayoutPanel12.Size = new Size(917, 105);
             tableLayoutPanel12.TabIndex = 29;
             // 
             // tableLayoutPanel14
             // 
             tableLayoutPanel14.ColumnCount = 1;
             tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel14.Controls.Add(tableLayoutPanel11, 0, 0);
-            tableLayoutPanel14.Controls.Add(tableLayoutPanel12, 0, 1);
-            tableLayoutPanel14.Controls.Add(tableLayoutPanel3, 0, 2);
-            tableLayoutPanel14.Controls.Add(tableLayoutPanel8, 0, 3);
-            tableLayoutPanel14.Location = new Point(99, 32);
+            tableLayoutPanel14.Controls.Add(tableLayoutPanel11, 0, 1);
+            tableLayoutPanel14.Controls.Add(tableLayoutPanel12, 0, 2);
+            tableLayoutPanel14.Controls.Add(tableLayoutPanel3, 0, 3);
+            tableLayoutPanel14.Controls.Add(tableLayoutPanel8, 0, 4);
+            tableLayoutPanel14.Controls.Add(tableLayoutPanel13, 0, 0);
+            tableLayoutPanel14.Dock = DockStyle.Fill;
+            tableLayoutPanel14.Location = new Point(0, 28);
             tableLayoutPanel14.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel14.Name = "tableLayoutPanel14";
-            tableLayoutPanel14.RowCount = 4;
+            tableLayoutPanel14.RowCount = 5;
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 0F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel14.Size = new Size(824, 387);
+            tableLayoutPanel14.Size = new Size(923, 391);
             tableLayoutPanel14.TabIndex = 31;
             // 
             // tableLayoutPanel3
@@ -393,11 +396,11 @@
             tableLayoutPanel3.Controls.Add(tableLayoutPanel9, 0, 0);
             tableLayoutPanel3.Controls.Add(tableLayoutPanel10, 1, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 227);
+            tableLayoutPanel3.Location = new Point(3, 229);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(818, 106);
+            tableLayoutPanel3.Size = new Size(917, 107);
             tableLayoutPanel3.TabIndex = 30;
             // 
             // tableLayoutPanel8
@@ -409,19 +412,18 @@
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel8.Controls.Add(printByPrinterButton, 0, 0);
             tableLayoutPanel8.Controls.Add(textToSpeechButton, 3, 0);
-            tableLayoutPanel8.Controls.Add(button22345, 1, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(3, 339);
+            tableLayoutPanel8.Location = new Point(3, 342);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 1;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Size = new Size(818, 45);
+            tableLayoutPanel8.Size = new Size(917, 46);
             tableLayoutPanel8.TabIndex = 31;
             // 
             // printByPrinterButton
             // 
             printByPrinterButton.Anchor = AnchorStyles.Bottom;
-            printByPrinterButton.Location = new Point(39, 5);
+            printByPrinterButton.Location = new Point(51, 6);
             printByPrinterButton.Margin = new Padding(3, 4, 3, 4);
             printByPrinterButton.MinimumSize = new Size(126, 36);
             printByPrinterButton.Name = "printByPrinterButton";
@@ -434,24 +436,27 @@
             // textToSpeechButton
             // 
             textToSpeechButton.Anchor = AnchorStyles.Bottom;
-            textToSpeechButton.Location = new Point(652, 6);
+            textToSpeechButton.Location = new Point(739, 7);
             textToSpeechButton.MinimumSize = new Size(126, 36);
             textToSpeechButton.Name = "textToSpeechButton";
             textToSpeechButton.Size = new Size(126, 36);
             textToSpeechButton.TabIndex = 35;
+            textToSpeechButton.Tag = "Мой тэг";
             textToSpeechButton.Text = "Озвучить";
             textToSpeechButton.UseVisualStyleBackColor = true;
-            textToSpeechButton.Click += textToSpeechButton_Click;
+            textToSpeechButton.Click += TextToSpeechButton_Click;
             // 
-            // button22345
+            // tableLayoutPanel13
             // 
-            button22345.Location = new Point(207, 3);
-            button22345.Name = "button22345";
-            button22345.Size = new Size(94, 29);
-            button22345.TabIndex = 36;
-            button22345.Text = "button1";
-            button22345.UseVisualStyleBackColor = true;
-            button22345.Click += button22345_Click;
+            tableLayoutPanel13.ColumnCount = 1;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.Dock = DockStyle.Fill;
+            tableLayoutPanel13.Location = new Point(3, 3);
+            tableLayoutPanel13.Name = "tableLayoutPanel13";
+            tableLayoutPanel13.RowCount = 1;
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.Size = new Size(917, 1);
+            tableLayoutPanel13.TabIndex = 32;
             // 
             // fileSystemWatcher1
             // 
@@ -545,6 +550,6 @@
         private Button textToSpeechButton;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem Settings;
-        private Button button22345;
+        private TableLayoutPanel tableLayoutPanel13;
     }
 }

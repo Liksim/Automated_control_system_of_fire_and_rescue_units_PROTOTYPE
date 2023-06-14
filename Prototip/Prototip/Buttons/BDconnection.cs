@@ -3,13 +3,13 @@ using System.Data;
 
 namespace Prototip.Buttons
 {
-    public class RescueEquipmentButtons
+    public class RescueEquipmentButton
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Voicing { get; set; }
 
-        public RescueEquipmentButtons(
+        public RescueEquipmentButton(
             int id,
             string name,
             string voicing)
@@ -23,11 +23,11 @@ namespace Prototip.Buttons
     {
         private readonly string connectionString =
             "SERVER=localhost;" +
-            "DATABASE=mydatabase;" +
-            "UID=testuser;" +
-            "PASSWORD=testpassword;";
+            "DATABASE=acs_db_prototype;" +
+            "UID=root;" +
+            "PASSWORD=4443;";
 
-        public void AddButton(RescueEquipmentButtons entity)
+        public void AddButton(RescueEquipmentButton entity)
         {
             MySqlConnection con = new MySqlConnection(connectionString);
 
@@ -70,6 +70,47 @@ namespace Prototip.Buttons
 
             command.ExecuteNonQuery();
             con.Close();
+        }
+
+        public List<RescueEquipmentButton> SelectButtons()
+        {
+            MySqlConnection con = new MySqlConnection(connectionString);
+
+            con.Open();
+            if (con.State == ConnectionState.Broken || con.State == ConnectionState.Closed)
+            {
+                throw new Exception("Database connection error.");
+            }
+
+            MySqlCommand command = new MySqlCommand
+            {
+                Connection = con,
+
+                CommandText = 
+                "select *" +
+                "from rescue_equipment_buttons;"
+            };
+
+            var reader = command.ExecuteReader();
+
+            List<RescueEquipmentButton> buttons = new List<RescueEquipmentButton>();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    RescueEquipmentButton button = new RescueEquipmentButton(
+                        id: Convert.ToInt32(reader["id"].ToString()),
+                        name: reader["name"].ToString(),
+                        voicing: reader["voicing"].ToString());
+                    buttons.Add(button);
+                }
+
+                reader.Close();
+            }
+
+            con.Close();
+            return buttons;
         }
     }
 }
