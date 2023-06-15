@@ -42,7 +42,7 @@ namespace Prototip.Buttons
                 Connection = con,
 
                 CommandText = 
-                $"insert into buttons " +
+                $"insert into rescue_equipment_buttons " +
                 $"(name, voicing) values " +
                 $"('{entity.Name}', '{entity.Voicing}');"
             };
@@ -65,7 +65,7 @@ namespace Prototip.Buttons
             {
                 Connection = con,
 
-                CommandText = $"delete from buttons where id = '{id}';"
+                CommandText = $"delete from rescue_equipment_buttons where id = '{id}';"
             };
 
             command.ExecuteNonQuery();

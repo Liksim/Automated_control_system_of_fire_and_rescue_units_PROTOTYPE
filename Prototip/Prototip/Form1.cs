@@ -56,6 +56,9 @@ namespace Prototip
             BDconnection con = new BDconnection();
             List<RescueEquipmentButton> buttonsData = con.SelectButtons();
 
+            tableLayoutPanel13.Controls.Clear();
+            tableLayoutPanel13.ColumnCount = 1;
+
             tableLayoutPanel14.RowStyles[0] = new RowStyle(SizeType.Absolute, 46F);
 
             foreach (RescueEquipmentButton buttonData in buttonsData)
@@ -78,7 +81,7 @@ namespace Prototip
                     tableLayoutPanel13.ColumnCount += 1;
                 }
 
-                tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+                tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
                 tableLayoutPanel13.Controls.Add(button, 0, 0);
             }
         }
