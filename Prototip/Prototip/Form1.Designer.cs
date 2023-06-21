@@ -57,6 +57,7 @@
             tableLayoutPanel8 = new TableLayoutPanel();
             printByPrinterButton = new Button();
             textToSpeechButton = new Button();
+            clearAllButton = new Button();
             tableLayoutPanel13 = new TableLayoutPanel();
             fileSystemWatcher1 = new FileSystemWatcher();
             menuStrip1 = new MenuStrip();
@@ -252,9 +253,9 @@
             // 
             tableLayoutPanel9.ColumnCount = 5;
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 230F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 36F));
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 18F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 36F));
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel9.Controls.Add(label1, 2, 0);
             tableLayoutPanel9.Controls.Add(timeMinutes, 3, 0);
@@ -273,7 +274,7 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(263, 39);
+            label1.Location = new Point(269, 39);
             label1.Name = "label1";
             label1.Size = new Size(12, 20);
             label1.TabIndex = 34;
@@ -283,18 +284,19 @@
             // timeMinutes
             // 
             timeMinutes.Anchor = AnchorStyles.None;
-            timeMinutes.Location = new Point(281, 36);
+            timeMinutes.Location = new Point(288, 36);
             timeMinutes.Name = "timeMinutes";
-            timeMinutes.Size = new Size(24, 27);
+            timeMinutes.Size = new Size(28, 27);
             timeMinutes.TabIndex = 32;
             timeMinutes.Text = "38";
+            timeMinutes.TextAlign = HorizontalAlignment.Center;
             // 
             // timeHours
             // 
             timeHours.Anchor = AnchorStyles.None;
-            timeHours.Location = new Point(233, 36);
+            timeHours.Location = new Point(234, 36);
             timeHours.Name = "timeHours";
-            timeHours.Size = new Size(24, 27);
+            timeHours.Size = new Size(28, 27);
             timeHours.TabIndex = 32;
             timeHours.Text = "16";
             timeHours.TextAlign = HorizontalAlignment.Center;
@@ -411,7 +413,8 @@
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel8.Controls.Add(printByPrinterButton, 0, 0);
-            tableLayoutPanel8.Controls.Add(textToSpeechButton, 3, 0);
+            tableLayoutPanel8.Controls.Add(textToSpeechButton, 1, 0);
+            tableLayoutPanel8.Controls.Add(clearAllButton, 3, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
             tableLayoutPanel8.Location = new Point(3, 342);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -422,8 +425,8 @@
             // 
             // printByPrinterButton
             // 
-            printByPrinterButton.Anchor = AnchorStyles.Bottom;
-            printByPrinterButton.Location = new Point(51, 6);
+            printByPrinterButton.Anchor = AnchorStyles.None;
+            printByPrinterButton.Location = new Point(51, 5);
             printByPrinterButton.Margin = new Padding(3, 4, 3, 4);
             printByPrinterButton.MinimumSize = new Size(126, 36);
             printByPrinterButton.Name = "printByPrinterButton";
@@ -435,16 +438,28 @@
             // 
             // textToSpeechButton
             // 
-            textToSpeechButton.Anchor = AnchorStyles.Bottom;
-            textToSpeechButton.Location = new Point(739, 7);
+            textToSpeechButton.Anchor = AnchorStyles.None;
+            textToSpeechButton.BackColor = SystemColors.Window;
+            textToSpeechButton.Location = new Point(280, 5);
             textToSpeechButton.MinimumSize = new Size(126, 36);
             textToSpeechButton.Name = "textToSpeechButton";
             textToSpeechButton.Size = new Size(126, 36);
             textToSpeechButton.TabIndex = 35;
             textToSpeechButton.Tag = "Мой тэг";
             textToSpeechButton.Text = "Озвучить";
-            textToSpeechButton.UseVisualStyleBackColor = true;
+            textToSpeechButton.UseVisualStyleBackColor = false;
             textToSpeechButton.Click += TextToSpeechButton_Click;
+            // 
+            // clearAllButton
+            // 
+            clearAllButton.Anchor = AnchorStyles.None;
+            clearAllButton.Location = new Point(739, 5);
+            clearAllButton.Name = "clearAllButton";
+            clearAllButton.Size = new Size(126, 36);
+            clearAllButton.TabIndex = 36;
+            clearAllButton.Text = "Очистить всё";
+            clearAllButton.UseVisualStyleBackColor = true;
+            clearAllButton.Click += clearAllButton_Click;
             // 
             // tableLayoutPanel13
             // 
@@ -551,5 +566,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem Settings;
         private TableLayoutPanel tableLayoutPanel13;
+        private Button clearAllButton;
     }
 }

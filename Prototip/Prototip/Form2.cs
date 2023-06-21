@@ -29,7 +29,24 @@ namespace Prototip
 
             if (ButtonName.Text == "" || ButtonVoicing.Text == "")
             {
-                AddErrorLabel.Text = "Оба поля должны быть заполнены!";
+                AddErrorLabel.Text = "Надпись и текст кнопки должны быть заполнены!";
+                AddErrorLabel.Visible = true;
+                return;
+            }
+
+            bool canAddThisHotKey = false;
+
+            foreach (string hotKeyStr in RescueEquipmentButton.HotKeys.Values)
+            {
+                if (ButtonHotKey.Text == hotKeyStr)
+                {
+                    canAddThisHotKey = true;
+                }
+            }
+
+            if (!canAddThisHotKey && ButtonHotKey.Text != "")
+            {
+                AddErrorLabel.Text = "Нельзя использовать такую горячую клавишу!";
                 AddErrorLabel.Visible = true;
                 return;
             }
@@ -37,7 +54,8 @@ namespace Prototip
             RescueEquipmentButton entity = new RescueEquipmentButton(
                 id: 0,
                 name: ButtonName.Text,
-                voicing: ButtonVoicing.Text);
+                voicing: ButtonVoicing.Text,
+                hotKey: ButtonHotKey.Text);
 
             BDconnection con = new BDconnection();
             con.AddButton(entity);
@@ -57,6 +75,7 @@ namespace Prototip
                 ButtonsData.Rows[i].Cells[0].Value = buttons[i].Id;
                 ButtonsData.Rows[i].Cells[1].Value = buttons[i].Name;
                 ButtonsData.Rows[i].Cells[2].Value = buttons[i].Voicing;
+                ButtonsData.Rows[i].Cells[3].Value = buttons[i].HotKey;
             }
 
             form1.AddRescueEquipmentButtons();

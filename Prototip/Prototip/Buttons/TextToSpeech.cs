@@ -1,6 +1,9 @@
 ﻿using DocumentFormat.OpenXml.Drawing.Charts;
 using System.Diagnostics;
 using System.Media;
+using IronPython;
+using Microsoft.Scripting;
+using IronPython.Hosting;
 
 namespace Prototip.Buttons
 {
@@ -9,13 +12,17 @@ namespace Prototip.Buttons
         public void textToSpeech(Dictionary<string, string> data) {
             // нужен запуск от имени администратора и скачанный питон
 
+            SoundPlayer alert = new SoundPlayer("../../../../../Goroditche_alert.wav");
+            alert.Play();
+            
+
             using Process process = new Process();
 
             process.StartInfo.Verb = "runas";
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
             var pythonPath = @"C:\Users\maksi\AppData\Local\Programs\Python\Python311\python.exe";
-            var args = "../../../textToSpeech.py \"" + data["address"] + ". " + data["typeOfIncident"] + ". На выезд: " + data["buttonVoicing"] + "\"";
+            var args = "../../../textToSpeech.py \"" + "На выезд: " + data["buttonVoicing"] + ". " + data["address"] + ". " + data["typeOfIncident"] + "\"";
 
             process.StartInfo.FileName = pythonPath;
             process.StartInfo.Arguments = string.Format("{0}", args);
@@ -26,6 +33,10 @@ namespace Prototip.Buttons
             string output = process.StandardOutput.ReadToEnd();
             output = output.Substring(0, output.Length - 2);
             process.WaitForExit();
+
+            //int delay = 500;
+            //Thread.Sleep(delay);
+            //alert.Stop();
 
             SoundPlayer player = new SoundPlayer(output);
             player.Play();
