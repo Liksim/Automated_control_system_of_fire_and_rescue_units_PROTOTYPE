@@ -54,7 +54,7 @@ namespace Prototip
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel8 = new TableLayoutPanel();
             label4 = new Label();
-            ButtonHotKey = new TextBox();
+            hotKeyButton = new Button();
             ((System.ComponentModel.ISupportInitialize)ButtonsData).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -333,7 +333,7 @@ namespace Prototip
             tableLayoutPanel8.ColumnCount = 1;
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel8.Controls.Add(label4, 0, 0);
-            tableLayoutPanel8.Controls.Add(ButtonHotKey, 0, 1);
+            tableLayoutPanel8.Controls.Add(hotKeyButton, 0, 1);
             tableLayoutPanel8.Dock = DockStyle.Fill;
             tableLayoutPanel8.Location = new Point(3, 183);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -347,20 +347,23 @@ namespace Prototip
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Location = new Point(47, 11);
+            label4.Location = new Point(8, 11);
             label4.Name = "label4";
-            label4.Size = new Size(133, 20);
+            label4.Size = new Size(212, 20);
             label4.TabIndex = 0;
-            label4.Text = "Горячая клавиша:";
+            label4.Text = "Назначить горячую клавишу:";
             // 
-            // ButtonHotKey
+            // hotKeyButton
             // 
-            ButtonHotKey.Anchor = AnchorStyles.None;
-            ButtonHotKey.Location = new Point(29, 49);
-            ButtonHotKey.Name = "ButtonHotKey";
-            ButtonHotKey.PlaceholderText = "F1-F12";
-            ButtonHotKey.Size = new Size(170, 27);
-            ButtonHotKey.TabIndex = 1;
+            hotKeyButton.Anchor = AnchorStyles.None;
+            hotKeyButton.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            hotKeyButton.Location = new Point(44, 48);
+            hotKeyButton.Name = "hotKeyButton";
+            hotKeyButton.Size = new Size(140, 29);
+            hotKeyButton.TabIndex = 1;
+            hotKeyButton.Text = "Выбрать";
+            hotKeyButton.UseVisualStyleBackColor = true;
+            hotKeyButton.Click += hotKeyButton_Click;
             // 
             // Form2
             // 
@@ -412,10 +415,10 @@ namespace Prototip
         private TableLayoutPanel tableLayoutPanel4;
         private TableLayoutPanel tableLayoutPanel8;
         private Label label4;
-        private TextBox ButtonHotKey;
         private DataGridViewTextBoxColumn IdColumn;
         private DataGridViewTextBoxColumn NameColumn;
         private DataGridViewTextBoxColumn VoicingColumn;
         private DataGridViewTextBoxColumn HotKeyColumn;
+        private Button hotKeyButton;
     }
 }

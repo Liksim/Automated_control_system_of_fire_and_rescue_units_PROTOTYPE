@@ -10,6 +10,37 @@ namespace Prototip
             form1 = owner;
             InitializeComponent();
             reloadData();
+            KeyPreview = true;
+            KeyDown += new KeyEventHandler(KeyHandler);
+        }
+
+        void KeyHandler(object sender, KeyEventArgs e)
+        {
+            if (hotKeyButton.Text == "Нажмите F1-F12")
+            {
+                foreach (Keys key in RescueEquipmentButton.HotKeys.Keys)
+                {
+                    if (key == (Keys)e.KeyValue)
+                    {
+                        hotKeyButton.Text = RescueEquipmentButton.HotKeys[key];
+                        return;
+                    }
+                }
+
+                hotKeyButton.Text = "Выбрать";
+            }
+        }
+
+        private void hotKeyButton_Click(object sender, EventArgs e)
+        {
+            if (hotKeyButton.Text == "Выбрать")
+            {
+                hotKeyButton.Text = "Нажмите F1-F12";
+            }
+            else
+            {
+                hotKeyButton.Text = "Выбрать";
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -34,28 +65,19 @@ namespace Prototip
                 return;
             }
 
-            bool canAddThisHotKey = false;
+            string hotKeyStr = "";
 
-            foreach (string hotKeyStr in RescueEquipmentButton.HotKeys.Values)
+            if(hotKeyButton.Text.Length < 4)
             {
-                if (ButtonHotKey.Text == hotKeyStr)
-                {
-                    canAddThisHotKey = true;
-                }
+                hotKeyStr = hotKeyButton.Text;
             }
-
-            if (!canAddThisHotKey && ButtonHotKey.Text != "")
-            {
-                AddErrorLabel.Text = "Нельзя использовать такую горячую клавишу!";
-                AddErrorLabel.Visible = true;
-                return;
-            }
+            
 
             RescueEquipmentButton entity = new RescueEquipmentButton(
                 id: 0,
                 name: ButtonName.Text,
                 voicing: ButtonVoicing.Text,
-                hotKey: ButtonHotKey.Text);
+                hotKey: hotKeyStr);
 
             BDconnection con = new BDconnection();
             con.AddButton(entity);
