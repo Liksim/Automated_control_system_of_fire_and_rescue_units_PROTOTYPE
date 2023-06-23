@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
+using System.Globalization;
 
 namespace Prototip.Buttons
 {
@@ -38,6 +39,44 @@ namespace Prototip.Buttons
             HotKey = hotKey;
         }
     }
+
+    public class PPD
+    {
+        public int Id { get; set; }
+        public string OrganizationName { get; set; }
+        public string Address { get; set; }
+        public int NumberInDepartament { get; set; }
+        public string PDDType { get; set; }
+
+        public PPD(
+            int id,
+            string organizationName,
+            string address,
+            int numberInDepartament,
+            string PPDType)
+        {
+            Id = id;
+            OrganizationName = organizationName;
+            Address = address;
+            NumberInDepartament = numberInDepartament;
+            PDDType = PPDType;
+        }
+    }
+
+    public class PPDType
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public PPDType(
+            int id,
+            string name)
+        {
+            Id = id;
+            Name = name;
+        }
+    }
+
     public class BDconnection
     {
         private readonly string connectionString =
@@ -131,6 +170,110 @@ namespace Prototip.Buttons
 
             con.Close();
             return buttons;
+        }
+
+        public void AddPPD(PPD entity)
+        {
+            MySqlConnection con = new MySqlConnection(connectionString);
+
+            con.Open();
+            if (con.State == ConnectionState.Broken || con.State == ConnectionState.Closed)
+            {
+                throw new Exception("Database connection error.");
+            }
+
+            MySqlCommand command = new MySqlCommand
+            {
+                Connection = con,
+
+                CommandText =
+                $"insert into ppd (organization_name, address, number_in_departament, id_ppd_type) values" +
+                $"('{entity.OrganizationName}', '{entity.Address}', '{entity.NumberInDepartament}', '{entity.PDDType}');"
+            };
+
+            command.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void DeletePPD(int id)
+        {
+            MySqlConnection con = new MySqlConnection(connectionString);
+
+            con.Open();
+            if (con.State == ConnectionState.Broken || con.State == ConnectionState.Closed)
+            {
+                throw new Exception("Database connection error.");
+            }
+
+            MySqlCommand command = new MySqlCommand
+            {
+                Connection = con,
+
+                CommandText = $"delete from ppd where id = '{id}';"
+            };
+
+            command.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public List<PPD> SelectPDDByPattern(List<string> patterns)
+        {
+            MySqlConnection con = new MySqlConnection(connectionString);
+
+            con.Open();
+            if (con.State == ConnectionState.Broken || con.State == ConnectionState.Closed)
+            {
+                throw new Exception("Database connection error.");
+            }
+
+            string commandText =
+                "select ppd.id, organization_name, address, number_in_departament, ppd_type.name as type " +
+                "from ppd " +
+                "join ppd_type on ppd.id_ppd_type = ppd_type.id where ";
+
+            foreach (string pattern in patterns)
+            {
+                commandText += $" address like \"%{pattern}%\"";
+                
+                if(patterns.IndexOf(pattern) != patterns.Count - 1) 
+                {
+                    commandText += " and";
+                }
+                else
+                {
+                    commandText += ";";
+                }
+            }
+
+            MySqlCommand command = new MySqlCommand
+            {
+                Connection = con,
+
+                CommandText = commandText
+            };
+
+            var reader = command.ExecuteReader();
+
+            List<PPD> PPDs = new List<PPD>();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    PPD PPD = new PPD(
+                        id: Convert.ToInt32(reader["id"].ToString()),
+                        organizationName: reader["organization_name"].ToString(),
+                        address: reader["address"].ToString(),
+                        numberInDepartament: Convert.ToInt32(reader["number_in_departament"].ToString()),
+                        PPDType: reader["type"].ToString());
+                    PPDs.Add(PPD);
+                }
+
+                reader.Close();
+            }
+
+            con.Close();
+            return PPDs;
         }
     }
 }

@@ -67,11 +67,11 @@ namespace Prototip
 
             string hotKeyStr = "";
 
-            if(hotKeyButton.Text.Length < 4)
+            if (hotKeyButton.Text.Length < 4)
             {
                 hotKeyStr = hotKeyButton.Text;
             }
-            
+
 
             RescueEquipmentButton entity = new RescueEquipmentButton(
                 id: 0,

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using MySqlX.XDevAPI;
 using Org.BouncyCastle.Asn1.X509;
 using Microsoft.Scripting.Ast;
+using System.Text.RegularExpressions;
 
 namespace Prototip
 {
@@ -149,6 +150,38 @@ namespace Prototip
             foreach (Button button in RescueEquipmentButtons)
             {
                 button.BackColor = Color.White;
+            }
+        }
+
+        private void addressTextBox_Focus(object sender, EventArgs e)
+        {
+            var patternsArr = address.Text.Split(new char[] { ' ' });
+
+            var patternsRawList = patternsArr.ToList();
+
+            var patternsList = new List<string>();
+
+            foreach (string s in patternsRawList)
+            {
+                if (!s.Contains('.'))
+                {
+                    patternsList.Add(s);
+                }
+            }
+
+
+            BDconnection con = new BDconnection();
+            List<PPD> PPDs = con.SelectPDDByPattern(patternsList);
+
+            PPDsData.Rows.Clear();
+
+            for (int i = 0; i < PPDs.Count; i++)
+            {
+                PPDsData.Rows.Add();
+                PPDsData.Rows[i].Cells[0].Value = PPDs[i].NumberInDepartament;
+                PPDsData.Rows[i].Cells[1].Value = PPDs[i].OrganizationName;
+                PPDsData.Rows[i].Cells[2].Value = PPDs[i].Address;
+                PPDsData.Rows[i].Cells[3].Value = PPDs[i].PDDType;
             }
         }
     }

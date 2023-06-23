@@ -123,9 +123,10 @@ namespace Prototip
             ButtonsData.Location = new Point(243, 3);
             ButtonsData.Name = "ButtonsData";
             ButtonsData.ReadOnly = true;
+            ButtonsData.RowHeadersVisible = false;
             ButtonsData.RowHeadersWidth = 51;
             ButtonsData.RowTemplate.Height = 29;
-            ButtonsData.Size = new Size(786, 540);
+            ButtonsData.Size = new Size(736, 540);
             ButtonsData.TabIndex = 5;
             // 
             // IdColumn
@@ -227,7 +228,7 @@ namespace Prototip
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1032, 546);
+            tableLayoutPanel1.Size = new Size(982, 546);
             tableLayoutPanel1.TabIndex = 12;
             // 
             // tableLayoutPanel7
@@ -369,10 +370,10 @@ namespace Prototip
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1032, 546);
+            ClientSize = new Size(982, 546);
             Controls.Add(tableLayoutPanel1);
-            MaximumSize = new Size(1050, 593);
-            MinimumSize = new Size(1050, 593);
+            MaximumSize = new Size(1000, 593);
+            MinimumSize = new Size(1000, 593);
             Name = "Form2";
             Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)ButtonsData).EndInit();
