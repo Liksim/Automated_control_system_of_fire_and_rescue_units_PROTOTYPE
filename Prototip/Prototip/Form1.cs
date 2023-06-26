@@ -1,4 +1,4 @@
-using System.Drawing.Printing;
+﻿using System.Drawing.Printing;
 using System.Speech.Synthesis;
 using System.Diagnostics;
 using System.Media;
@@ -8,6 +8,7 @@ using MySqlX.XDevAPI;
 using Org.BouncyCastle.Asn1.X509;
 using Microsoft.Scripting.Ast;
 using System.Text.RegularExpressions;
+using VkBotFramework;
 
 namespace Prototip
 {
@@ -22,6 +23,8 @@ namespace Prototip
             AddRescueEquipmentButtons();
             KeyPreview = true;
             KeyDown += new KeyEventHandler(KeyHandler);
+
+            _bot = new VkBot(AccessToken, GroupUrl);
         }
 
         private void printByPrinterButton_Click(object sender, EventArgs e)
@@ -183,6 +186,41 @@ namespace Prototip
                 PPDsData.Rows[i].Cells[2].Value = PPDs[i].Address;
                 PPDsData.Rows[i].Cells[3].Value = PPDs[i].PDDType;
             }
+        }
+
+        private static string AccessToken = "vk1.a.ZkjDmAxVfiNzN_XR_DZGuqiULsLGFHpH6yLlVorHcky4fD1EbAW20LLuHt2gpaZRMJuIHIu5zpkiLK8HbwaQYQ_Dqw76mv0m0beRgFDhsD2V-YPZI-ShNKMPoVNLgGumLW_qjo-UV441othCZzbyJJErsyGz7_JH-FE9i_E33QUzIadSPlSo6_Tv0VqM2vG48qotMNaZ-OeOy8cH7RZBJQ";
+        private static string GroupUrl = "https://vk.com/club221296482";
+        private static VkBot _bot;
+
+        private void mailingButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+
+            foreach (Button button in RescueEquipmentButtons)
+            {
+                if (button.BackColor == Color.OrangeRed)
+                {
+                    //message += button.Tag.ToString();
+                    message += button.Text;
+
+                    message += ", ";
+                }
+            }
+
+            message = message.Substring(0, message.Length - 2);
+
+            message +=
+                "\r\n" + address.Text +
+                "\r\n" + typeOfIncident.Text +
+                "\r\n" + timeHours.Text + ":" + timeMinutes.Text + " " + dateOfReceipt.Text;
+
+
+            _bot.Api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams()
+            {
+                Message = message,
+                PeerId = 2000000188,
+                RandomId = Environment.TickCount
+            });
         }
     }
 }

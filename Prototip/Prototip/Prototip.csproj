@@ -36,6 +36,7 @@
     <PackageReference Include="Python.Runtime" Version="2.7.9" />
     <PackageReference Include="System.Speech" Version="7.0.0" />
     <PackageReference Include="TemplateEngine.Docx" Version="1.1.5" />
+    <PackageReference Include="VkBotFramework" Version="1.0.0" />
     <PackageReference Include="WMPLib" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

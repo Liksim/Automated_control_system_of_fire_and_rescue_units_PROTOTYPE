@@ -62,6 +62,7 @@
             printByPrinterButton = new Button();
             textToSpeechButton = new Button();
             clearAllButton = new Button();
+            mailingButton = new Button();
             tableLayoutPanel13 = new TableLayoutPanel();
             tableLayoutPanel16 = new TableLayoutPanel();
             PPDsData = new DataGridView();
@@ -96,7 +97,7 @@
             address.Location = new Point(3, 105);
             address.Margin = new Padding(3, 4, 3, 4);
             address.Name = "address";
-            address.Size = new Size(450, 27);
+            address.Size = new Size(463, 27);
             address.TabIndex = 3;
             address.Text = "сп. Поселение ул. Уличная д. 1111";
             address.GotFocus += addressTextBox_Focus;
@@ -118,7 +119,7 @@
             typeOfIncident.Location = new Point(3, 105);
             typeOfIncident.Margin = new Padding(3, 4, 3, 4);
             typeOfIncident.Name = "typeOfIncident";
-            typeOfIncident.Size = new Size(451, 27);
+            typeOfIncident.Size = new Size(464, 27);
             typeOfIncident.TabIndex = 5;
             typeOfIncident.Text = "Горит частный дом";
             // 
@@ -168,7 +169,7 @@
             fio.Location = new Point(3, 105);
             fio.Margin = new Padding(3, 4, 3, 4);
             fio.Name = "fio";
-            fio.Size = new Size(450, 27);
+            fio.Size = new Size(463, 27);
             fio.TabIndex = 14;
             fio.Text = "Иванов Иван Иванович";
             // 
@@ -178,7 +179,7 @@
             number.Location = new Point(3, 105);
             number.Margin = new Padding(3, 4, 3, 4);
             number.Name = "number";
-            number.Size = new Size(451, 27);
+            number.Size = new Size(464, 27);
             number.TabIndex = 15;
             number.Text = "8 800 555 35 35";
             // 
@@ -195,7 +196,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(456, 202);
+            tableLayoutPanel1.Size = new Size(469, 202);
             tableLayoutPanel1.TabIndex = 20;
             // 
             // tableLayoutPanel2
@@ -205,13 +206,13 @@
             tableLayoutPanel2.Controls.Add(label3, 0, 0);
             tableLayoutPanel2.Controls.Add(typeOfIncident, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(495, 4);
+            tableLayoutPanel2.Location = new Point(508, 4);
             tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(457, 202);
+            tableLayoutPanel2.Size = new Size(470, 202);
             tableLayoutPanel2.TabIndex = 21;
             // 
             // tableLayoutPanel4
@@ -227,7 +228,7 @@
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new Size(456, 202);
+            tableLayoutPanel4.Size = new Size(469, 202);
             tableLayoutPanel4.TabIndex = 23;
             // 
             // tableLayoutPanel5
@@ -237,13 +238,13 @@
             tableLayoutPanel5.Controls.Add(label8, 0, 0);
             tableLayoutPanel5.Controls.Add(number, 0, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(495, 4);
+            tableLayoutPanel5.Location = new Point(508, 4);
             tableLayoutPanel5.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Size = new Size(457, 202);
+            tableLayoutPanel5.Size = new Size(470, 202);
             tableLayoutPanel5.TabIndex = 24;
             // 
             // tableLayoutPanel6
@@ -282,7 +283,7 @@
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 1;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(456, 204);
+            tableLayoutPanel9.Size = new Size(469, 204);
             tableLayoutPanel9.TabIndex = 26;
             // 
             // label1
@@ -325,12 +326,12 @@
             tableLayoutPanel10.Controls.Add(label6, 0, 0);
             tableLayoutPanel10.Controls.Add(dateOfReceipt, 1, 0);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(495, 4);
+            tableLayoutPanel10.Location = new Point(508, 4);
             tableLayoutPanel10.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 1;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Size = new Size(457, 204);
+            tableLayoutPanel10.Size = new Size(470, 204);
             tableLayoutPanel10.TabIndex = 27;
             // 
             // label6
@@ -365,7 +366,7 @@
             tableLayoutPanel11.Name = "tableLayoutPanel11";
             tableLayoutPanel11.RowCount = 1;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel11.Size = new Size(955, 210);
+            tableLayoutPanel11.Size = new Size(981, 210);
             tableLayoutPanel11.TabIndex = 28;
             // 
             // tableLayoutPanel12
@@ -382,7 +383,7 @@
             tableLayoutPanel12.Name = "tableLayoutPanel12";
             tableLayoutPanel12.RowCount = 1;
             tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel12.Size = new Size(955, 210);
+            tableLayoutPanel12.Size = new Size(981, 210);
             tableLayoutPanel12.TabIndex = 29;
             // 
             // tableLayoutPanel14
@@ -408,7 +409,7 @@
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel14.Size = new Size(1001, 925);
+            tableLayoutPanel14.Size = new Size(1027, 925);
             tableLayoutPanel14.TabIndex = 31;
             // 
             // tableLayoutPanel3
@@ -424,7 +425,7 @@
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(955, 212);
+            tableLayoutPanel3.Size = new Size(981, 212);
             tableLayoutPanel3.TabIndex = 30;
             // 
             // tableLayoutPanel8
@@ -438,18 +439,19 @@
             tableLayoutPanel8.Controls.Add(printByPrinterButton, 0, 0);
             tableLayoutPanel8.Controls.Add(textToSpeechButton, 1, 0);
             tableLayoutPanel8.Controls.Add(clearAllButton, 4, 0);
+            tableLayoutPanel8.Controls.Add(mailingButton, 3, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
             tableLayoutPanel8.Location = new Point(23, 875);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 1;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Size = new Size(955, 47);
+            tableLayoutPanel8.Size = new Size(981, 47);
             tableLayoutPanel8.TabIndex = 31;
             // 
             // printByPrinterButton
             // 
             printByPrinterButton.Anchor = AnchorStyles.None;
-            printByPrinterButton.Location = new Point(52, 5);
+            printByPrinterButton.Location = new Point(55, 5);
             printByPrinterButton.Margin = new Padding(3, 4, 3, 4);
             printByPrinterButton.MinimumSize = new Size(126, 36);
             printByPrinterButton.Name = "printByPrinterButton";
@@ -463,7 +465,7 @@
             // 
             textToSpeechButton.Anchor = AnchorStyles.None;
             textToSpeechButton.BackColor = SystemColors.Window;
-            textToSpeechButton.Location = new Point(283, 5);
+            textToSpeechButton.Location = new Point(292, 5);
             textToSpeechButton.MinimumSize = new Size(126, 36);
             textToSpeechButton.Name = "textToSpeechButton";
             textToSpeechButton.Size = new Size(126, 36);
@@ -476,13 +478,24 @@
             // clearAllButton
             // 
             clearAllButton.Anchor = AnchorStyles.None;
-            clearAllButton.Location = new Point(776, 5);
+            clearAllButton.Location = new Point(798, 5);
             clearAllButton.Name = "clearAllButton";
             clearAllButton.Size = new Size(126, 36);
             clearAllButton.TabIndex = 36;
             clearAllButton.Text = "Очистить всё";
             clearAllButton.UseVisualStyleBackColor = true;
             clearAllButton.Click += clearAllButton_Click;
+            // 
+            // mailingButton
+            // 
+            mailingButton.Anchor = AnchorStyles.None;
+            mailingButton.Location = new Point(559, 5);
+            mailingButton.Name = "mailingButton";
+            mailingButton.Size = new Size(126, 36);
+            mailingButton.TabIndex = 37;
+            mailingButton.Text = "Рассылка";
+            mailingButton.UseVisualStyleBackColor = true;
+            mailingButton.Click += mailingButton_Click;
             // 
             // tableLayoutPanel13
             // 
@@ -493,7 +506,7 @@
             tableLayoutPanel13.Name = "tableLayoutPanel13";
             tableLayoutPanel13.RowCount = 1;
             tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel13.Size = new Size(955, 1);
+            tableLayoutPanel13.Size = new Size(981, 1);
             tableLayoutPanel13.TabIndex = 32;
             // 
             // tableLayoutPanel16
@@ -508,7 +521,7 @@
             tableLayoutPanel16.RowCount = 2;
             tableLayoutPanel16.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel16.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel16.Size = new Size(955, 212);
+            tableLayoutPanel16.Size = new Size(981, 212);
             tableLayoutPanel16.TabIndex = 33;
             // 
             // PPDsData
@@ -532,7 +545,7 @@
             PPDsData.RowHeadersVisible = false;
             PPDsData.RowHeadersWidth = 51;
             PPDsData.RowTemplate.Height = 29;
-            PPDsData.Size = new Size(949, 176);
+            PPDsData.Size = new Size(975, 176);
             PPDsData.TabIndex = 32;
             // 
             // NumberInDepartamentColumn
@@ -582,7 +595,7 @@
             // 
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
-            label5.Location = new Point(457, 5);
+            label5.Location = new Point(470, 5);
             label5.Name = "label5";
             label5.Size = new Size(41, 20);
             label5.TabIndex = 33;
@@ -600,7 +613,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { Settings });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1001, 28);
+            menuStrip1.Size = new Size(1027, 28);
             menuStrip1.TabIndex = 33;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -615,7 +628,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1001, 953);
+            ClientSize = new Size(1027, 953);
             Controls.Add(tableLayoutPanel14);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -692,5 +705,6 @@
         private DataGridViewTextBoxColumn TypeColumn;
         private TableLayoutPanel tableLayoutPanel16;
         private Label label5;
+        private Button mailingButton;
     }
 }
