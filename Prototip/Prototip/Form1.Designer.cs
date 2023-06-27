@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             address = new TextBox();
             label2 = new Label();
             typeOfIncident = new TextBox();
@@ -421,14 +421,14 @@
             // 
             PPDsData.AllowUserToAddRows = false;
             PPDsData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            PPDsData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            PPDsData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             PPDsData.ColumnHeadersHeight = 29;
             PPDsData.Columns.AddRange(new DataGridViewColumn[] { NumberInDepartamentColumn, OrganizationNameColumn, AddressColumn, TypeColumn });
             PPDsData.Dock = DockStyle.Fill;
@@ -444,8 +444,8 @@
             // NumberInDepartamentColumn
             // 
             NumberInDepartamentColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleRight;
-            NumberInDepartamentColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            NumberInDepartamentColumn.DefaultCellStyle = dataGridViewCellStyle2;
             NumberInDepartamentColumn.FillWeight = 106.951874F;
             NumberInDepartamentColumn.HeaderText = "№";
             NumberInDepartamentColumn.MinimumWidth = 6;
@@ -465,8 +465,8 @@
             // AddressColumn
             // 
             AddressColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            AddressColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            AddressColumn.DefaultCellStyle = dataGridViewCellStyle3;
             AddressColumn.FillWeight = 97.68271F;
             AddressColumn.HeaderText = "Адрес";
             AddressColumn.MinimumWidth = 6;
@@ -475,8 +475,8 @@
             // 
             // TypeColumn
             // 
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            TypeColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            TypeColumn.DefaultCellStyle = dataGridViewCellStyle4;
             TypeColumn.FillWeight = 120F;
             TypeColumn.HeaderText = "Тип документа";
             TypeColumn.MinimumWidth = 6;
