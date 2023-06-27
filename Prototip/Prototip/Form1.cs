@@ -215,6 +215,8 @@ namespace Prototip
             message +=
                 "\r\n" + address.Text +
                 "\r\n" + typeOfIncident.Text +
+                "\r\nСообщал: " + fio.Text + " " + number.Text +
+                "\r\nДоп. информация: " + details.Text +
                 "\r\n" + dateTimeValues[0] + " " + dateTimeValues[4];
 
 
