@@ -35,8 +35,6 @@ namespace Prototip
                 ["typeOfIncident"] = typeOfIncident.Text,
                 ["fio"] = fio.Text,
                 ["number"] = number.Text,
-                ["timeHours"] = timeHours.Text,
-                ["timeMinutes"] = timeMinutes.Text,
                 ["dateOfReceipt"] = dateOfReceipt.Text
             };
 
@@ -147,8 +145,6 @@ namespace Prototip
             typeOfIncident.Clear();
             fio.Clear();
             number.Clear();
-            timeHours.Clear();
-            timeMinutes.Clear();
             dateOfReceipt.ResetText();
             foreach (Button button in RescueEquipmentButtons)
             {
@@ -207,18 +203,25 @@ namespace Prototip
                 }
             }
 
-            message = message.Substring(0, message.Length - 2);
+            if (message.Length > 0)
+            {
+                message = message.Substring(0, message.Length - 2);
+            }
+
+            string[] dateTimeValues = dateOfReceipt.Text.Split();
+            dateTimeValues[4] = dateTimeValues[4].Insert(4, " ");
+            dateTimeValues[4] = dateTimeValues[4].Insert(dateTimeValues[4].Length - 4, " ");
 
             message +=
                 "\r\n" + address.Text +
                 "\r\n" + typeOfIncident.Text +
-                "\r\n" + timeHours.Text + ":" + timeMinutes.Text + " " + dateOfReceipt.Text;
+                "\r\n" + dateTimeValues[0] + " " + dateTimeValues[4];
 
 
             _bot.Api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams()
             {
                 Message = message,
-                PeerId = 2000000188,
+                PeerId = 2000000010,
                 RandomId = Environment.TickCount
             });
         }

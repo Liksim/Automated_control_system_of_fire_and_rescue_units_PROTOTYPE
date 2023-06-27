@@ -12,7 +12,7 @@ namespace Prototip.Buttons
         public void textToSpeech(Dictionary<string, string> data) {
             // нужен запуск от имени администратора и скачанный питон
 
-            SoundPlayer alert = new SoundPlayer("../../../../../Goroditche_alert.wav");
+            SoundPlayer alert = new SoundPlayer("../../../../../15 ПСЧ.wav");
             alert.Play();
             
 
@@ -22,7 +22,7 @@ namespace Prototip.Buttons
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
             var pythonPath = @"C:\Users\maksi\AppData\Local\Programs\Python\Python311\python.exe";
-            var args = "../../../textToSpeech.py \"" + "На выезд: " + data["buttonVoicing"] + ". " + data["address"] + ". " + data["typeOfIncident"] + "\"";
+            var args = "../../../textToSpeech.py \"" + data["buttonVoicing"] + ". " + data["address"] + ". " + data["typeOfIncident"] + "\"";
 
             process.StartInfo.FileName = pythonPath;
             process.StartInfo.Arguments = string.Format("{0}", args);

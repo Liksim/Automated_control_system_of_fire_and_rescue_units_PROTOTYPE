@@ -75,27 +75,24 @@ namespace Prototip.Buttons
 
         public void print(Dictionary<string, string> data)
         {
+            string[] dateTimeValues = data["dateOfReceipt"].Split();
+            dateTimeValues[4] = dateTimeValues[4].Insert(4, " ");
+            dateTimeValues[4] = dateTimeValues[4].Insert(dateTimeValues[4].Length - 4, " ");
+
             header1 = "Путевка для выезда на пожар (ЧС)";
 
             header2 = "дежурного караула (отделения) 15 ПСЧ 1 ПСО ФПС ГПС \r\nГлавного управления МЧС России по Волгоградской области\r\n";
 
             content = "1. Место пожара (ЧС), адрес:\t" + data["address"] + "\n";
             content += "2. Объект пожара (характер ЧС):\t" + data["typeOfIncident"] + "\n";
-            content += "3. Время получения сообщения:\t" + data["timeHours"] + ":" + data["timeMinutes"] + "\n";
+            content += "3. Время получения сообщения:\t" + dateTimeValues[0] + "\n";
             content += "4. Фамилия, имя, отчество (при наличии) и номер телефона заявителя:\n";
             content += "    " + data["fio"] + " " + data["number"] + "\n";
 
             signature = "________________________________________________________\n";
             signature += "(подпись дежурного диспетчера подразделения пожарной охраны)";
 
-            
-            string[] dateValues = data["dateOfReceipt"].Split(' ');
-            
-            date = "«" + dateValues[0] + "»";
-            for (int i = 1; i < dateValues.Length; i++)
-            {
-                date += " " + dateValues[i];
-            }
+            date = dateTimeValues[4];
 
             note = "Примечание. Отсутствие сведений об объекте пожара и данных о заявителе не может задерживать выезд караула на пожар (ЧС)";
 
