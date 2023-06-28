@@ -56,6 +56,7 @@
             textToSpeechButton = new Button();
             clearAllButton = new Button();
             mailingButton = new Button();
+            mapButton = new Button();
             tableLayoutPanel13 = new TableLayoutPanel();
             tableLayoutPanel16 = new TableLayoutPanel();
             PPDsData = new DataGridView();
@@ -323,16 +324,18 @@
             // 
             // tableLayoutPanel8
             // 
-            tableLayoutPanel8.ColumnCount = 5;
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel8.ColumnCount = 6;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel8.Controls.Add(printByPrinterButton, 0, 0);
             tableLayoutPanel8.Controls.Add(textToSpeechButton, 1, 0);
-            tableLayoutPanel8.Controls.Add(clearAllButton, 4, 0);
-            tableLayoutPanel8.Controls.Add(mailingButton, 3, 0);
+            tableLayoutPanel8.Controls.Add(clearAllButton, 5, 0);
+            tableLayoutPanel8.Controls.Add(mailingButton, 4, 0);
+            tableLayoutPanel8.Controls.Add(mapButton, 2, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
             tableLayoutPanel8.Location = new Point(23, 601);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -344,7 +347,7 @@
             // printByPrinterButton
             // 
             printByPrinterButton.Anchor = AnchorStyles.None;
-            printByPrinterButton.Location = new Point(55, 4);
+            printByPrinterButton.Location = new Point(32, 4);
             printByPrinterButton.Margin = new Padding(3, 4, 3, 4);
             printByPrinterButton.MinimumSize = new Size(126, 36);
             printByPrinterButton.Name = "printByPrinterButton";
@@ -358,7 +361,7 @@
             // 
             textToSpeechButton.Anchor = AnchorStyles.None;
             textToSpeechButton.BackColor = SystemColors.Window;
-            textToSpeechButton.Location = new Point(292, 4);
+            textToSpeechButton.Location = new Point(222, 4);
             textToSpeechButton.MinimumSize = new Size(126, 36);
             textToSpeechButton.Name = "textToSpeechButton";
             textToSpeechButton.Size = new Size(126, 36);
@@ -371,7 +374,7 @@
             // clearAllButton
             // 
             clearAllButton.Anchor = AnchorStyles.None;
-            clearAllButton.Location = new Point(798, 4);
+            clearAllButton.Location = new Point(822, 4);
             clearAllButton.Name = "clearAllButton";
             clearAllButton.Size = new Size(126, 36);
             clearAllButton.TabIndex = 36;
@@ -382,13 +385,24 @@
             // mailingButton
             // 
             mailingButton.Anchor = AnchorStyles.None;
-            mailingButton.Location = new Point(559, 4);
+            mailingButton.Location = new Point(632, 4);
             mailingButton.Name = "mailingButton";
             mailingButton.Size = new Size(126, 36);
             mailingButton.TabIndex = 37;
             mailingButton.Text = "Рассылка";
             mailingButton.UseVisualStyleBackColor = true;
             mailingButton.Click += mailingButton_Click;
+            // 
+            // mapButton
+            // 
+            mapButton.Anchor = AnchorStyles.None;
+            mapButton.Location = new Point(412, 4);
+            mapButton.Name = "mapButton";
+            mapButton.Size = new Size(126, 36);
+            mapButton.TabIndex = 38;
+            mapButton.Text = "Карта";
+            mapButton.UseVisualStyleBackColor = true;
+            mapButton.Click += mapButton_Click;
             // 
             // tableLayoutPanel13
             // 
@@ -577,5 +591,6 @@
         private Label label1;
         private Label label6;
         private TableLayoutPanel tableLayoutPanel3;
+        private Button mapButton;
     }
 }

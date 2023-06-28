@@ -227,5 +227,17 @@ namespace Prototip
                 RandomId = Environment.TickCount
             });
         }
+
+        private void mapButton_Click(object sender, EventArgs e)
+        {
+            string addressStr = address.Text.Replace(" ", "");
+
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "cmd",
+                Arguments = $"/c start https://yandex.ru/maps/38/volgograd/search/{addressStr}",
+                WindowStyle = ProcessWindowStyle.Hidden
+            });
+        }
     }
 }
