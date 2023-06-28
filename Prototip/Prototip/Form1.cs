@@ -1,13 +1,6 @@
-﻿using System.Drawing.Printing;
-using System.Speech.Synthesis;
+﻿using Prototip.Buttons;
 using System.Diagnostics;
-using System.Media;
-using Prototip.Buttons;
-using System.Windows.Forms;
-using MySqlX.XDevAPI;
-using Org.BouncyCastle.Asn1.X509;
-using Microsoft.Scripting.Ast;
-using System.Text.RegularExpressions;
+using System.Security.Policy;
 using VkBotFramework;
 
 namespace Prototip
@@ -216,7 +209,7 @@ namespace Prototip
                 "\r\n" + address.Text +
                 "\r\n" + typeOfIncident.Text +
                 "\r\nСообщал: " + fio.Text + " " + number.Text +
-                "\r\nДоп. информация: " + details.Text +
+                "\r\nДоп. информация: \r\n" + details.Text +
                 "\r\n" + dateTimeValues[0] + " " + dateTimeValues[4];
 
 

@@ -58,6 +58,10 @@ namespace Prototip
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            tabPage3 = new TabPage();
+            button1 = new Button();
+            label5 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)ButtonsData).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -69,6 +73,7 @@ namespace Prototip
             tableLayoutPanel8.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage3.SuspendLayout();
             SuspendLayout();
             // 
             // addButton
@@ -373,6 +378,7 @@ namespace Prototip
             // 
             // tabControl1
             // 
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Dock = DockStyle.Fill;
@@ -403,6 +409,44 @@ namespace Prototip
             tabPage2.Text = "ДПП";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(textBox1);
+            tabPage3.Controls.Add(label5);
+            tabPage3.Controls.Add(button1);
+            tabPage3.Location = new Point(4, 29);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(974, 513);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Общие";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(282, 302);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(98, 83);
+            label5.Name = "label5";
+            label5.Size = new Size(193, 20);
+            label5.TabIndex = 1;
+            label5.Text = "Поселение по умлочанию";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(151, 148);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 2;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -430,6 +474,8 @@ namespace Prototip
             tableLayoutPanel8.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -463,5 +509,9 @@ namespace Prototip
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private TabPage tabPage3;
+        private TextBox textBox1;
+        private Label label5;
+        private Button button1;
     }
 }
