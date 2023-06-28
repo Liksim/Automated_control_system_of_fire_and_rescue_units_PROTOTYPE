@@ -1,6 +1,7 @@
 ﻿using Prototip.Buttons;
+using Prototip.DBconnection;
+using Prototip.DBconnection.Entities;
 using System.Diagnostics;
-using System.Security.Policy;
 using VkBotFramework;
 
 namespace Prototip
@@ -9,6 +10,9 @@ namespace Prototip
     {
         private readonly Print print = new();
         private readonly TextToSpeech textToSpeech = new();
+        Repository<RescueEquipmentButton> buttonRepository = new Repository<RescueEquipmentButton>(ContextManager.GetContext());
+        Repository<PPD> PPDRepository = new Repository<PPD>(ContextManager.GetContext());
+        Repository<PPDType> PPDTypeRepository = new Repository<PPDType>(ContextManager.GetContext());
 
         public Form1()
         {
@@ -38,8 +42,7 @@ namespace Prototip
 
         void KeyHandler(object sender, KeyEventArgs e)
         {
-            BDconnection con = new BDconnection();
-            List<RescueEquipmentButton> buttonsData = con.SelectButtons();
+            var buttonsData = buttonRepository.Read().ToList();
 
             foreach (RescueEquipmentButton buttonData in buttonsData)
             {
@@ -97,8 +100,7 @@ namespace Prototip
 
         public void AddRescueEquipmentButtons()
         {
-            BDconnection con = new BDconnection();
-            List<RescueEquipmentButton> buttonsData = con.SelectButtons();
+            var buttonsData = buttonRepository.Read().ToList();
 
             tableLayoutPanel13.Controls.Clear();
             tableLayoutPanel13.ColumnCount = buttonsData.Count;
@@ -161,9 +163,26 @@ namespace Prototip
                 }
             }
 
+            string commandText =
+                "select id as Id, organization_name as OrganizationName, address, number_in_departament as NumberInDepartament, id_ppd_type as IdPPDType " +
+                "from ppd " +
+                "where ";
 
-            BDconnection con = new BDconnection();
-            List<PPD> PPDs = con.SelectPDDByPattern(patternsList);
+            foreach (string pattern in patternsList)
+            {
+                commandText += $" address like \"%{pattern}%\"";
+
+                if (patternsList.IndexOf(pattern) != patternsList.Count - 1)
+                {
+                    commandText += " and";
+                }
+                else
+                {
+                    commandText += ";";
+                }
+            }
+
+            var PPDs = PPDRepository.SQL<PPD>(commandText).ToList();
 
             PPDsData.Rows.Clear();
 
@@ -173,7 +192,7 @@ namespace Prototip
                 PPDsData.Rows[i].Cells[0].Value = PPDs[i].NumberInDepartament;
                 PPDsData.Rows[i].Cells[1].Value = PPDs[i].OrganizationName;
                 PPDsData.Rows[i].Cells[2].Value = PPDs[i].Address;
-                PPDsData.Rows[i].Cells[3].Value = PPDs[i].PDDType;
+                PPDsData.Rows[i].Cells[3].Value = PPDTypeRepository.Read(PPDs[i].IdPPDType).Name;
             }
         }
 

@@ -1,10 +1,14 @@
 ﻿using Prototip.Buttons;
+using Prototip.DBconnection;
+using Prototip.DBconnection.Entities;
+using System.Globalization;
 
 namespace Prototip
 {
     public partial class Form2 : Form
     {
         Form1 form1;
+        Repository<RescueEquipmentButton> buttonRepository = new Repository<RescueEquipmentButton> (ContextManager.GetContext());
         public Form2(Form1 owner)
         {
             form1 = owner;
@@ -70,24 +74,22 @@ namespace Prototip
             if (hotKeyButton.Text.Length < 4)
             {
                 hotKeyStr = hotKeyButton.Text;
-            }
+            }  
 
+            RescueEquipmentButton rescueEquipmentButton = new RescueEquipmentButton
+            {
+                Name = ButtonName.Text,
+                Voicing = ButtonVoicing.Text,
+                HotKey = hotKeyStr
+            };
 
-            RescueEquipmentButton entity = new RescueEquipmentButton(
-                id: 0,
-                name: ButtonName.Text,
-                voicing: ButtonVoicing.Text,
-                hotKey: hotKeyStr);
-
-            BDconnection con = new BDconnection();
-            con.AddButton(entity);
+            buttonRepository.Create(rescueEquipmentButton);
             reloadData();
         }
 
         private void reloadData()
         {
-            BDconnection con = new BDconnection();
-            List<RescueEquipmentButton> buttons = con.SelectButtons();
+            var buttons = buttonRepository.Read().ToList();
 
             ButtonsData.Rows.Clear();
 
@@ -104,7 +106,7 @@ namespace Prototip
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
-        {
+        {          
             AddErrorLabel.Visible = false;
             DeleteErrorLabel.Visible = false;
 
@@ -115,8 +117,7 @@ namespace Prototip
                 return;
             }
 
-            BDconnection con = new BDconnection();
-            con.DeleteButton(Int32.Parse(ButtonId.Text));
+            buttonRepository.Delete(Int32.Parse(ButtonId.Text));
             reloadData();
         }
     }
