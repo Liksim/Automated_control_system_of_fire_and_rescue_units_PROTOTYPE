@@ -229,7 +229,8 @@ namespace Prototip
                 "\r\n" + typeOfIncident.Text +
                 "\r\nСообщал: " + fio.Text + " " + number.Text +
                 "\r\nДоп. информация: \r\n" + details.Text +
-                "\r\n" + dateTimeValues[0] + " " + dateTimeValues[4];
+                "\r\n" + dateTimeValues[0] + " " + dateTimeValues[4] +
+                "\r\n" + $"https://yandex.ru/maps/38/volgograd/search/{address.Text.Replace(" ", "")}";
 
 
             _bot.Api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams()

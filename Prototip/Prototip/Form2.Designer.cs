@@ -56,12 +56,12 @@ namespace Prototip
             label4 = new Label();
             hotKeyButton = new Button();
             tabControl1 = new TabControl();
+            tabPage3 = new TabPage();
+            textBox1 = new TextBox();
+            label5 = new Label();
+            button1 = new Button();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
-            tabPage3 = new TabPage();
-            button1 = new Button();
-            label5 = new Label();
-            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)ButtonsData).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -72,8 +72,8 @@ namespace Prototip
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
             tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // addButton
@@ -388,6 +388,44 @@ namespace Prototip
             tabControl1.Size = new Size(982, 546);
             tabControl1.TabIndex = 13;
             // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(textBox1);
+            tabPage3.Controls.Add(label5);
+            tabPage3.Controls.Add(button1);
+            tabPage3.Location = new Point(4, 29);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(974, 513);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Общие";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(151, 148);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 2;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(98, 83);
+            label5.Name = "label5";
+            label5.Size = new Size(196, 20);
+            label5.TabIndex = 1;
+            label5.Text = "Поселение по умолчанию:";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(282, 302);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // tabPage1
             // 
             tabPage1.Controls.Add(tableLayoutPanel1);
@@ -408,44 +446,6 @@ namespace Prototip
             tabPage2.TabIndex = 1;
             tabPage2.Text = "ДПП";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            tabPage3.Controls.Add(textBox1);
-            tabPage3.Controls.Add(label5);
-            tabPage3.Controls.Add(button1);
-            tabPage3.Location = new Point(4, 29);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(974, 513);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Общие";
-            tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(282, 302);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(98, 83);
-            label5.Name = "label5";
-            label5.Size = new Size(193, 20);
-            label5.TabIndex = 1;
-            label5.Text = "Поселение по умлочанию";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(151, 148);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 2;
             // 
             // Form2
             // 
@@ -473,9 +473,9 @@ namespace Prototip
             tableLayoutPanel8.ResumeLayout(false);
             tableLayoutPanel8.PerformLayout();
             tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
