@@ -13,7 +13,7 @@ namespace vkChatBot.DBconnection.Entities
         [Column("id_bot_user")]
         public int IdBotUser { get; set; }
 
-        [Column("id_bot_source_group")]
+        [Column("id_source_group")]
         public int IdBotSourceGroup { get; set; }
 
         public Subscription() { }

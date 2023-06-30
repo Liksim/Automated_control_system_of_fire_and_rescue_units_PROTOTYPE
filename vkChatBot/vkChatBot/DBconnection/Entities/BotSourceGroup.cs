@@ -17,5 +17,10 @@ namespace vkChatBot.DBconnection.Entities
         {
             Name = name;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

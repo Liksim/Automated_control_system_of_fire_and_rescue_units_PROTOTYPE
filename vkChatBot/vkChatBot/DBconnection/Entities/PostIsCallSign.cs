@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using VkNet.Enums.SafetyEnums;
 
 namespace vkChatBot.DBconnection.Entities
@@ -23,6 +24,11 @@ namespace vkChatBot.DBconnection.Entities
         {
             Post = post;
             CallSign = callSign;
+        }
+
+        public override string ToString()
+        {
+            return CallSign + " - " + Post;
         }
     }
 }

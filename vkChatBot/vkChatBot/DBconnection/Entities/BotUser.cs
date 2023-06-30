@@ -19,18 +19,25 @@ namespace vkChatBot.DBconnection.Entities
         public int IdPostIsCallSign { get; set; }
 
         [Column("id_source_group")]
-        public int? IdSourceGroup { get; set; }
+        public int IdBotSourceGroup { get; set; }
 
         public BotUser() { }
 
         public BotUser(
             string name,
             long peerId,
-            int idPostIsCallSign)
+            int idPostIsCallSign,
+            int idBotSourceGroup)
         {
             Name = name;
             PeerId = peerId;
             IdPostIsCallSign = idPostIsCallSign;
+            IdBotSourceGroup = idBotSourceGroup;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
