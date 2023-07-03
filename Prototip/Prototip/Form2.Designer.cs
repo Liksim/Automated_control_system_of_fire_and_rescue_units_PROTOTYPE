@@ -57,11 +57,23 @@ namespace Prototip
             hotKeyButton = new Button();
             tabControl1 = new TabControl();
             tabPage3 = new TabPage();
-            textBox1 = new TextBox();
+            tableLayoutPanel13 = new TableLayoutPanel();
+            tableLayoutPanel9 = new TableLayoutPanel();
+            tableLayoutPanel12 = new TableLayoutPanel();
+            label7 = new Label();
+            tableLayoutPanel14 = new TableLayoutPanel();
+            alertLocationButton = new Button();
+            alertLocation = new TextBox();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            label6 = new Label();
+            departmentName = new TextBox();
+            tableLayoutPanel10 = new TableLayoutPanel();
             label5 = new Label();
-            button1 = new Button();
+            districts = new TextBox();
+            saveGlobalSettingsButton = new Button();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)ButtonsData).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -73,6 +85,12 @@ namespace Prototip
             tableLayoutPanel8.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
+            tableLayoutPanel13.SuspendLayout();
+            tableLayoutPanel9.SuspendLayout();
+            tableLayoutPanel12.SuspendLayout();
+            tableLayoutPanel14.SuspendLayout();
+            tableLayoutPanel11.SuspendLayout();
+            tableLayoutPanel10.SuspendLayout();
             tabPage1.SuspendLayout();
             SuspendLayout();
             // 
@@ -390,9 +408,7 @@ namespace Prototip
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(textBox1);
-            tabPage3.Controls.Add(label5);
-            tabPage3.Controls.Add(button1);
+            tabPage3.Controls.Add(tableLayoutPanel13);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
@@ -401,30 +417,171 @@ namespace Prototip
             tabPage3.Text = "Общие";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tableLayoutPanel13
             // 
-            textBox1.Location = new Point(151, 148);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 2;
+            tableLayoutPanel13.ColumnCount = 2;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
+            tableLayoutPanel13.Controls.Add(tableLayoutPanel9, 0, 0);
+            tableLayoutPanel13.Controls.Add(saveGlobalSettingsButton, 1, 0);
+            tableLayoutPanel13.Dock = DockStyle.Fill;
+            tableLayoutPanel13.Location = new Point(3, 3);
+            tableLayoutPanel13.Name = "tableLayoutPanel13";
+            tableLayoutPanel13.RowCount = 1;
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel13.Size = new Size(968, 507);
+            tableLayoutPanel13.TabIndex = 8;
+            // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.ColumnCount = 1;
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel9.Controls.Add(tableLayoutPanel12, 0, 2);
+            tableLayoutPanel9.Controls.Add(tableLayoutPanel11, 0, 1);
+            tableLayoutPanel9.Controls.Add(tableLayoutPanel10, 0, 0);
+            tableLayoutPanel9.Dock = DockStyle.Fill;
+            tableLayoutPanel9.Location = new Point(3, 3);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.RowCount = 3;
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel9.Size = new Size(802, 501);
+            tableLayoutPanel9.TabIndex = 7;
+            // 
+            // tableLayoutPanel12
+            // 
+            tableLayoutPanel12.ColumnCount = 1;
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel12.Controls.Add(label7, 0, 0);
+            tableLayoutPanel12.Controls.Add(tableLayoutPanel14, 0, 1);
+            tableLayoutPanel12.Dock = DockStyle.Fill;
+            tableLayoutPanel12.Location = new Point(3, 337);
+            tableLayoutPanel12.Name = "tableLayoutPanel12";
+            tableLayoutPanel12.RowCount = 2;
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel12.Size = new Size(796, 161);
+            tableLayoutPanel12.TabIndex = 8;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Left;
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 30);
+            label7.Name = "label7";
+            label7.Size = new Size(341, 20);
+            label7.TabIndex = 5;
+            label7.Text = "Расположение аудиофайла звука сирены (.wav)";
+            // 
+            // tableLayoutPanel14
+            // 
+            tableLayoutPanel14.ColumnCount = 2;
+            tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
+            tableLayoutPanel14.Controls.Add(alertLocationButton, 1, 0);
+            tableLayoutPanel14.Controls.Add(alertLocation, 0, 0);
+            tableLayoutPanel14.Dock = DockStyle.Fill;
+            tableLayoutPanel14.Location = new Point(3, 83);
+            tableLayoutPanel14.Name = "tableLayoutPanel14";
+            tableLayoutPanel14.RowCount = 1;
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel14.Size = new Size(790, 75);
+            tableLayoutPanel14.TabIndex = 6;
+            // 
+            // alertLocationButton
+            // 
+            alertLocationButton.Location = new Point(663, 3);
+            alertLocationButton.Name = "alertLocationButton";
+            alertLocationButton.Size = new Size(119, 27);
+            alertLocationButton.TabIndex = 0;
+            alertLocationButton.Text = "Выбрать файл";
+            alertLocationButton.UseVisualStyleBackColor = true;
+            alertLocationButton.Click += alertLocationButton_Click;
+            // 
+            // alertLocation
+            // 
+            alertLocation.Dock = DockStyle.Fill;
+            alertLocation.Location = new Point(3, 3);
+            alertLocation.Name = "alertLocation";
+            alertLocation.Size = new Size(654, 27);
+            alertLocation.TabIndex = 1;
+            // 
+            // tableLayoutPanel11
+            // 
+            tableLayoutPanel11.ColumnCount = 1;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel11.Controls.Add(label6, 0, 0);
+            tableLayoutPanel11.Controls.Add(departmentName, 0, 1);
+            tableLayoutPanel11.Dock = DockStyle.Fill;
+            tableLayoutPanel11.Location = new Point(3, 170);
+            tableLayoutPanel11.Name = "tableLayoutPanel11";
+            tableLayoutPanel11.RowCount = 2;
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel11.Size = new Size(796, 161);
+            tableLayoutPanel11.TabIndex = 8;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Left;
+            label6.AutoSize = true;
+            label6.Location = new Point(3, 30);
+            label6.Name = "label6";
+            label6.Size = new Size(122, 20);
+            label6.TabIndex = 3;
+            label6.Text = "Название части:";
+            // 
+            // departmentName
+            // 
+            departmentName.Dock = DockStyle.Fill;
+            departmentName.Location = new Point(3, 83);
+            departmentName.Name = "departmentName";
+            departmentName.Size = new Size(790, 27);
+            departmentName.TabIndex = 4;
+            // 
+            // tableLayoutPanel10
+            // 
+            tableLayoutPanel10.ColumnCount = 1;
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel10.Controls.Add(label5, 0, 0);
+            tableLayoutPanel10.Controls.Add(districts, 0, 1);
+            tableLayoutPanel10.Dock = DockStyle.Fill;
+            tableLayoutPanel10.Location = new Point(3, 3);
+            tableLayoutPanel10.Name = "tableLayoutPanel10";
+            tableLayoutPanel10.RowCount = 2;
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel10.Size = new Size(796, 161);
+            tableLayoutPanel10.TabIndex = 8;
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Left;
             label5.AutoSize = true;
-            label5.Location = new Point(98, 83);
+            label5.Location = new Point(3, 30);
             label5.Name = "label5";
-            label5.Size = new Size(196, 20);
+            label5.Size = new Size(373, 20);
             label5.TabIndex = 1;
-            label5.Text = "Поселение по умолчанию:";
+            label5.Text = "Районы по умолчанию (перечислить черз запятую):";
             // 
-            // button1
+            // districts
             // 
-            button1.Location = new Point(282, 302);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            districts.Dock = DockStyle.Fill;
+            districts.Location = new Point(3, 83);
+            districts.Name = "districts";
+            districts.Size = new Size(790, 27);
+            districts.TabIndex = 2;
+            // 
+            // saveGlobalSettingsButton
+            // 
+            saveGlobalSettingsButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            saveGlobalSettingsButton.Location = new Point(839, 468);
+            saveGlobalSettingsButton.Name = "saveGlobalSettingsButton";
+            saveGlobalSettingsButton.Size = new Size(126, 36);
+            saveGlobalSettingsButton.TabIndex = 0;
+            saveGlobalSettingsButton.Text = "Сохранить";
+            saveGlobalSettingsButton.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -446,6 +603,12 @@ namespace Prototip
             tabPage2.TabIndex = 1;
             tabPage2.Text = "ДПП";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.Filter = "Аудиофайлы|*.wav";
+            openFileDialog1.Title = "Выберите файл";
             // 
             // Form2
             // 
@@ -474,7 +637,16 @@ namespace Prototip
             tableLayoutPanel8.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
-            tabPage3.PerformLayout();
+            tableLayoutPanel13.ResumeLayout(false);
+            tableLayoutPanel9.ResumeLayout(false);
+            tableLayoutPanel12.ResumeLayout(false);
+            tableLayoutPanel12.PerformLayout();
+            tableLayoutPanel14.ResumeLayout(false);
+            tableLayoutPanel14.PerformLayout();
+            tableLayoutPanel11.ResumeLayout(false);
+            tableLayoutPanel11.PerformLayout();
+            tableLayoutPanel10.ResumeLayout(false);
+            tableLayoutPanel10.PerformLayout();
             tabPage1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -510,8 +682,20 @@ namespace Prototip
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TabPage tabPage3;
-        private TextBox textBox1;
+        private TextBox districts;
         private Label label5;
-        private Button button1;
+        private Button saveGlobalSettingsButton;
+        private TextBox departmentName;
+        private Label label6;
+        private TableLayoutPanel tableLayoutPanel13;
+        private TableLayoutPanel tableLayoutPanel9;
+        private TableLayoutPanel tableLayoutPanel12;
+        private Label label7;
+        private TableLayoutPanel tableLayoutPanel11;
+        private TableLayoutPanel tableLayoutPanel10;
+        private OpenFileDialog openFileDialog1;
+        private TableLayoutPanel tableLayoutPanel14;
+        private Button alertLocationButton;
+        private TextBox alertLocation;
     }
 }

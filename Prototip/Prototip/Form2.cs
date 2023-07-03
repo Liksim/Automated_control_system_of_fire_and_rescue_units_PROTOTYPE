@@ -8,7 +8,7 @@ namespace Prototip
     public partial class Form2 : Form
     {
         Form1 form1;
-        Repository<RescueEquipmentButton> buttonRepository = new Repository<RescueEquipmentButton> (ContextManager.GetContext());
+        Repository<RescueEquipmentButton> buttonRepository = new Repository<RescueEquipmentButton>(ContextManager.GetContext());
         public Form2(Form1 owner)
         {
             form1 = owner;
@@ -74,7 +74,7 @@ namespace Prototip
             if (hotKeyButton.Text.Length < 4)
             {
                 hotKeyStr = hotKeyButton.Text;
-            }  
+            }
 
             RescueEquipmentButton rescueEquipmentButton = new RescueEquipmentButton
             {
@@ -106,7 +106,7 @@ namespace Prototip
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
-        {          
+        {
             AddErrorLabel.Visible = false;
             DeleteErrorLabel.Visible = false;
 
@@ -119,6 +119,12 @@ namespace Prototip
 
             buttonRepository.Delete(Int32.Parse(ButtonId.Text));
             reloadData();
+        }
+
+        private void alertLocationButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            alertLocation.Text = openFileDialog1.FileName;
         }
     }
 }
