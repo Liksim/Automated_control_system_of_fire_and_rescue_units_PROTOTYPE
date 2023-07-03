@@ -42,12 +42,10 @@ namespace vkChatBot
                 "10. update user {ID}; {имя}; {позывной}; {название группы}\r\n" +
                 "11. update call sign {ID}; {позывной}; {должность}\r\n" +
                 "12. update source group {ID}; {название группы}\r\n" +
-                "13. update subscription\r\n" +
-                "14. delete user {ID}\r\n" +
-                "15. delete call sign {ID}\r\n" +
-                "16. delete source group {ID}\r\n" +
-                "17. delete subscription\r\n" +
-                "Не реализованы пункты: 13, 17.");
+                "13. delete user {ID}\r\n" +
+                "14. delete call sign {ID}\r\n" +
+                "15. delete source group {ID}\r\n" +
+                "16. delete subscription\r\n");
             _bot.Start();
             Console.ReadLine();
         }
@@ -208,7 +206,7 @@ namespace vkChatBot
             {                
                 _bot.Api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams()
                 {
-                    Message = $"Не реализовано.",
+                    Message = $"Нет такой команды!",
                     PeerId = e.Message.PeerId,
                     RandomId = Environment.TickCount
                 });
@@ -239,13 +237,9 @@ namespace vkChatBot
             }
             else if (inMessage.Contains("subscription"))
             {
-                _bot.Api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams()
-                {
-                    Message = "Не реализовано.",
-                    PeerId = e.Message.PeerId,
-                    RandomId = Environment.TickCount
-                });
-                return;
+                inMessage = inMessage.Remove(inMessage.IndexOf("subscription"), 12);
+                inMessage = inMessage.Trim();
+                subscriptionRepository.Delete(int.Parse(inMessage));
             }
 
             _bot.Api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams()
@@ -365,7 +359,7 @@ namespace vkChatBot
             {
                 view +=
                     subscription.Id.ToString() + ". " +
-                    botSourceGroupRepository.Read(subscription.IdBotSourceGroup) + "\r\n";
+                    botSourceGroupRepository.Read(subscription.IdBotSourceGroup).Name + "\r\n";
             }
         }
 
