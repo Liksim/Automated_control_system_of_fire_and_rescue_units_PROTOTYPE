@@ -8,20 +8,26 @@ namespace Prototip
 {
     public partial class Form1 : Form
     {
+        public int IdDepartment { get; set; }
+
         private readonly Print print = new();
         private readonly TextToSpeech textToSpeech = new();
         Repository<RescueEquipmentButton> buttonRepository = new Repository<RescueEquipmentButton>(ContextManager.GetContext());
         Repository<PPD> PPDRepository = new Repository<PPD>(ContextManager.GetContext());
         Repository<PPDType> PPDTypeRepository = new Repository<PPDType>(ContextManager.GetContext());
+        Repository<Department> departmentRepository = new Repository<Department>(ContextManager.GetContext());
+        Repository<GlobalSettings> globalSettingsRepository = new Repository<GlobalSettings>(ContextManager.GetContext());
 
-        public Form1()
+        public Form1(PreviewForm previewForm, int idDepartment)
         {
+            previewForm.Hide();
+
             InitializeComponent();
-            AddRescueEquipmentButtons();
             KeyPreview = true;
             KeyDown += new KeyEventHandler(KeyHandler);
-
             _bot = new VkBot(AccessToken, GroupUrl);
+            IdDepartment = idDepartment;
+            AddRescueEquipmentButtons();
         }
 
         private void printByPrinterButton_Click(object sender, EventArgs e)
@@ -35,14 +41,14 @@ namespace Prototip
                 ["dateOfReceipt"] = dateOfReceipt.Text
             };
 
-            print.print(data);
+            print.print(data, globalSettingsRepository.Read(IdDepartment).Name);
         }
 
         private List<Button> RescueEquipmentButtons;
 
         void KeyHandler(object sender, KeyEventArgs e)
         {
-            var buttonsData = buttonRepository.Read().ToList();
+            var buttonsData = buttonRepository.Read().Where(x => x.IdDepartment == IdDepartment).ToList();
 
             foreach (RescueEquipmentButton buttonData in buttonsData)
             {
@@ -90,7 +96,7 @@ namespace Prototip
                 ["buttonVoicing"] = buttonVoicing
             };
 
-            textToSpeech.textToSpeech(data);
+            textToSpeech.textToSpeech(data, globalSettingsRepository.Read(IdDepartment).AlertLocation);
         }
 
         private void Settings_Click(object sender, EventArgs e)
@@ -100,38 +106,41 @@ namespace Prototip
 
         public void AddRescueEquipmentButtons()
         {
-            var buttonsData = buttonRepository.Read().ToList();
+            var buttonsData = buttonRepository.Read().Where(x => x.IdDepartment == IdDepartment).ToList();
 
-            tableLayoutPanel13.Controls.Clear();
-            tableLayoutPanel13.ColumnCount = buttonsData.Count;
-
-            tableLayoutPanel14.RowStyles[0] = new RowStyle(SizeType.Absolute, 46F);
-
-            List<Button> RescueEquipmentButtons = new() { };
-
-            foreach (RescueEquipmentButton buttonData in buttonsData)
+            if (buttonsData.Count > 0)
             {
-                Button button = new Button();
-                button.Anchor = AnchorStyles.Bottom;
-                button.Location = new Point(51, 6);
-                button.Margin = new Padding(3, 4, 3, 4);
-                button.MinimumSize = new Size(126, 36);
-                button.Name = buttonData.Name;
-                button.Size = new Size(126, 36);
-                button.TabIndex = 32;
-                button.Text = buttonData.Name;
-                button.Tag = buttonData.Voicing;
-                button.BackColor = Color.White;
-                button.UseVisualStyleBackColor = true;
-                button.Click += Select_Click;
+                tableLayoutPanel13.Controls.Clear();
+                tableLayoutPanel13.ColumnCount = buttonsData.Count;
 
-                tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-                tableLayoutPanel13.Controls.Add(button, buttonsData.IndexOf(buttonData), 0);
+                tableLayoutPanel14.RowStyles[0] = new RowStyle(SizeType.Absolute, 46F);
 
-                RescueEquipmentButtons.Add(button);
+                List<Button> RescueEquipmentButtons = new() { };
+
+                foreach (RescueEquipmentButton buttonData in buttonsData)
+                {
+                    Button button = new Button();
+                    button.Anchor = AnchorStyles.Bottom;
+                    button.Location = new Point(51, 6);
+                    button.Margin = new Padding(3, 4, 3, 4);
+                    button.MinimumSize = new Size(126, 36);
+                    button.Name = buttonData.Name;
+                    button.Size = new Size(126, 36);
+                    button.TabIndex = 32;
+                    button.Text = buttonData.Name;
+                    button.Tag = buttonData.Voicing;
+                    button.BackColor = Color.White;
+                    button.UseVisualStyleBackColor = true;
+                    button.Click += Select_Click;
+
+                    tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+                    tableLayoutPanel13.Controls.Add(button, buttonsData.IndexOf(buttonData), 0);
+
+                    RescueEquipmentButtons.Add(button);
+                }
+
+                this.RescueEquipmentButtons = RescueEquipmentButtons;
             }
-
-            this.RescueEquipmentButtons = RescueEquipmentButtons;
         }
 
         private void clearAllButton_Click(object sender, EventArgs e)
@@ -166,7 +175,7 @@ namespace Prototip
             string commandText =
                 "select id as Id, organization_name as OrganizationName, address, number_in_departament as NumberInDepartament, id_ppd_type as IdPPDType " +
                 "from ppd " +
-                "where ";
+                $"where ppd.id = {IdDepartment} and ";
 
             foreach (string pattern in patternsList)
             {

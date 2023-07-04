@@ -6,6 +6,8 @@ namespace Prototip.Buttons
 {
     public class Print
     {
+        int indentFromHeaders = 0;
+
         // Напишем обработчик события печати, который будет непосредственно отрисовывать текст на листе бумаги
         private string header1 = "";
 
@@ -24,7 +26,7 @@ namespace Prototip.Buttons
 
         private void Header2Handler(object sender, PrintPageEventArgs e)
         {
-            Rectangle rect = new Rectangle(0, 40, 877, 0);
+            Rectangle rect = new Rectangle(0, 20, 877, 5 + indentFromHeaders);
 
             StringFormat headerFormat = new StringFormat();
             headerFormat.Alignment = StringAlignment.Center;
@@ -37,7 +39,7 @@ namespace Prototip.Buttons
 
         private void ContentHandler(object sender, PrintPageEventArgs e)
         {
-            Rectangle rect = new Rectangle(20, 60, 877, 0);
+            Rectangle rect = new Rectangle(20, 30 + indentFromHeaders, 877, 0);
 
             e.Graphics.DrawString(content, new Font("Times New Roman", 12), Brushes.Black, rect);
         }
@@ -46,7 +48,7 @@ namespace Prototip.Buttons
 
         private void SignatureHandler(object sender, PrintPageEventArgs e)
         {
-            Rectangle rect = new Rectangle(0, 195, 820, 0);
+            Rectangle rect = new Rectangle(0, 165 + indentFromHeaders, 820, 0);
 
             StringFormat headerFormat = new StringFormat();
             headerFormat.Alignment = StringAlignment.Far;
@@ -59,7 +61,7 @@ namespace Prototip.Buttons
 
         private void DateHandler(object sender, PrintPageEventArgs e)
         {
-            Rectangle rect = new Rectangle(20, 200, 877, 0);
+            Rectangle rect = new Rectangle(20, 170 + indentFromHeaders, 877, 0);
 
             e.Graphics.DrawString(date, new Font("Times New Roman", 12), Brushes.Black, rect);
         }
@@ -68,20 +70,22 @@ namespace Prototip.Buttons
 
         private void NoteHandler(object sender, PrintPageEventArgs e)
         {
-            Rectangle rect = new Rectangle(20, 220, 877, 0);
+            Rectangle rect = new Rectangle(20, 190 + indentFromHeaders, 877, 0);
 
             e.Graphics.DrawString(note, new Font("Times New Roman", 10), Brushes.Black, rect);
         }
 
-        public void print(Dictionary<string, string> data)
+        public void print(Dictionary<string, string> data, string departmentName)
         {
+            indentFromHeaders = 15 * departmentName.Split("\n").Count();
+
             string[] dateTimeValues = data["dateOfReceipt"].Split();
             dateTimeValues[4] = dateTimeValues[4].Insert(4, " ");
             dateTimeValues[4] = dateTimeValues[4].Insert(dateTimeValues[4].Length - 4, " ");
 
             header1 = "Путевка для выезда на пожар (ЧС)";
 
-            header2 = "дежурного караула (отделения) 15 ПСЧ 1 ПСО ФПС ГПС \r\nГлавного управления МЧС России по Волгоградской области\r\n";
+            header2 = $"дежурного караула (отделения) {departmentName}\r\n";
 
             content = "1. Место пожара (ЧС), адрес:\t" + data["address"] + "\n";
             content += "2. Объект пожара (характер ЧС):\t" + data["typeOfIncident"] + "\n";

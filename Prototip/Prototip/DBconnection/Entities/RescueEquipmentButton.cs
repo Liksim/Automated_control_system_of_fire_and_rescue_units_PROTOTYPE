@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace Prototip.DBconnection.Entities
 {
     [Table("rescue_equipment_buttons")]
     public class RescueEquipmentButton : Entity
     {
+        [IgnoreDataMember]
         public static Dictionary<Keys, string> HotKeys = new Dictionary<Keys, string>()
         {
             {Keys.F1, "F1"},
@@ -25,15 +27,20 @@ namespace Prototip.DBconnection.Entities
         public string Voicing { get; set; }
         public string HotKey { get; set; }
 
+        [Column("id_department")]
+        public int IdDepartment { get; set; }
+
         public RescueEquipmentButton() { }
         public RescueEquipmentButton(
             string name,
             string voicing,
-            string hotKey)
+            string hotKey,
+            int idDepartment)
         {
             Name = name;
             Voicing = voicing;
             HotKey = hotKey;
+            IdDepartment = idDepartment;
         }
     }
 }

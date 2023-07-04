@@ -8,7 +8,8 @@ namespace Prototip.DBconnection.Entities
         public string Name { get; set; }
 
         public PPDType() { }
-        public PPDType(string name)
+        public PPDType(
+            string name)
         {
             Name = name;
         }

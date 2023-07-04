@@ -15,8 +15,10 @@ namespace Prototip.DBconnection
         { }
 
         public DbSet<RescueEquipmentButton> RescueEquipmentButtons { get; set; }
-        public DbSet<PPD> PPD { get; set; }
-        public DbSet<PPDType> PPDType { get; set; }
+        public DbSet<PPD> PPDs { get; set; }
+        public DbSet<PPDType> PPDTypes { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<GlobalSettings> GlobalSettings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

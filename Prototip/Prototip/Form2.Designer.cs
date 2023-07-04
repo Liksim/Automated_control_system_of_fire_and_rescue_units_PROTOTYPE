@@ -536,8 +536,10 @@ namespace Prototip
             // 
             departmentName.Dock = DockStyle.Fill;
             departmentName.Location = new Point(3, 83);
+            departmentName.Multiline = true;
             departmentName.Name = "departmentName";
-            departmentName.Size = new Size(790, 27);
+            departmentName.ScrollBars = ScrollBars.Vertical;
+            departmentName.Size = new Size(790, 75);
             departmentName.TabIndex = 4;
             // 
             // tableLayoutPanel10
@@ -582,6 +584,7 @@ namespace Prototip
             saveGlobalSettingsButton.TabIndex = 0;
             saveGlobalSettingsButton.Text = "Сохранить";
             saveGlobalSettingsButton.UseVisualStyleBackColor = true;
+            saveGlobalSettingsButton.Click += saveGlobalSettingsButton_Click;
             // 
             // tabPage1
             // 

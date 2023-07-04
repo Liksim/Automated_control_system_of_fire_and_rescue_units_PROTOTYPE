@@ -34,6 +34,10 @@
     <PackageReference Include="DynamicLanguageRuntime" Version="1.3.3" />
     <PackageReference Include="IronPython" Version="3.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="MySql.Data" Version="8.0.33" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
     <PackageReference Include="Python.Runtime" Version="2.7.9" />
@@ -51,6 +55,10 @@
     <None Update="textToSpeech.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MIgrations\" />
   </ItemGroup>
 
   

@@ -2,7 +2,6 @@
 
 namespace Prototip.DBconnection.Entities
 {
-    [Table("ppd")]
     public class PPD : Entity
     {
         [Column("organization_name")]
@@ -13,20 +12,24 @@ namespace Prototip.DBconnection.Entities
         [Column("number_in_departament")]
         public int NumberInDepartament { get; set; }
 
-        [Column("id_ppd_type")]
         public int IdPPDType { get; set; }
+
+        [Column("id_department")]
+        public int IdDepartment { get; set; }
 
         public PPD() { }
         public PPD(
             string organizationName,
             string address,
             int numberInDepartament,
-            int idPPDType)
+            int idPPDType,
+            int idDepartment)
         {
             OrganizationName = organizationName;
             Address = address;
             NumberInDepartament = numberInDepartament;
             IdPPDType = idPPDType;
+            IdDepartment = idDepartment;
         }
     }
 }

@@ -27,7 +27,15 @@ namespace Prototip.DBconnection
 
         public T Read(int id) 
         {
-            return _context.Set<T>().Where(x => x.Id == id).First();
+            IQueryable<T> entity = _context.Set<T>().Where(x => x.Id == id);
+            if(entity.Count() == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return entity.First();
+            }
         }
 
         public void Update(T entity)

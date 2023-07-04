@@ -536,7 +536,6 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "АСУ ППО и АСФ";
-            WindowState = FormWindowState.Minimized;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

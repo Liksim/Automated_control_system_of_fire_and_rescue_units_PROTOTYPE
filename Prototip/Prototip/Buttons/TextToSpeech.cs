@@ -1,18 +1,14 @@
-﻿using DocumentFormat.OpenXml.Drawing.Charts;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Media;
-using IronPython;
-using Microsoft.Scripting;
-using IronPython.Hosting;
 
 namespace Prototip.Buttons
 {
     internal class TextToSpeech
     {
-        public void textToSpeech(Dictionary<string, string> data) {
+        public void textToSpeech(Dictionary<string, string> data, string alertLocation) {
             // нужен запуск от имени администратора и скачанный питон
 
-            SoundPlayer alert = new SoundPlayer("../../../../../15 ПСЧ.wav");
+            SoundPlayer alert = new SoundPlayer(alertLocation);
             alert.Play();
             
 
