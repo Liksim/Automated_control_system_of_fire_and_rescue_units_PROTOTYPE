@@ -367,12 +367,6 @@ namespace vkChatBot
         {
             var command = inMessage.Split(';');
 
-            long p = botUserRepository.Read().Where(x => x.Id == int.Parse(command[0])).First().PeerId;
-            int c = postIsCallSignRepository.Read().Where(x => x.CallSign == command[2].Trim()).First().Id;
-            var ss = botSourceGroupRepository.Read();
-            int s = botSourceGroupRepository.Read().Where(x => x.Name == command[3].Trim()).First().Id;
-
-
             var entity = new BotUser(
                 name: command[1].Trim(),
                 peerId: botUserRepository.Read().Where(x => x.Id == int.Parse(command[0])).First().PeerId,
