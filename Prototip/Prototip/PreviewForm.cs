@@ -1,5 +1,7 @@
 ﻿using Prototip.DBconnection;
 using Prototip.DBconnection.Entities;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Prototip
 {
@@ -67,7 +69,7 @@ namespace Prototip
 
                 foreach (var department in departments)
                 {
-                    if (department.Login == login.Text && department.Password == password.Text)
+                    if (department.Login == login.Text && department.Password == sha256_hash(password.Text))
                     {
                         Form1 mainForm = new Form1(this, department.Id);
                         mainForm.ShowDialog();
@@ -126,8 +128,8 @@ namespace Prototip
                 Department newDepartment = new Department
                 {
                     Login = login.Text,
-                    Password = password.Text,
-                    SettingsPassword = settingsPassword.Text
+                    Password = sha256_hash(password.Text),
+                    SettingsPassword = sha256_hash(settingsPassword.Text)
                 };
 
                 departmentRepository.Create(newDepartment);
@@ -136,6 +138,22 @@ namespace Prototip
                 mainForm.ShowDialog();
                 Close();
             }
+        }
+
+        public static String sha256_hash(string value)
+        {
+            StringBuilder Sb = new StringBuilder();
+
+            using (var hash = SHA256.Create())
+            {
+                Encoding enc = Encoding.UTF8;
+                byte[] result = hash.ComputeHash(enc.GetBytes(value));
+
+                foreach (byte b in result)
+                    Sb.Append(b.ToString("x2"));
+            }
+
+            return Sb.ToString();
         }
     }
 }
