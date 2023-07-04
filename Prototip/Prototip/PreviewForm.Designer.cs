@@ -102,6 +102,7 @@
             password.Dock = DockStyle.Fill;
             password.Location = new Point(3, 40);
             password.Name = "password";
+            password.PasswordChar = '*';
             password.Size = new Size(374, 27);
             password.TabIndex = 2;
             password.Text = "password";
@@ -111,6 +112,7 @@
             settingsPassword.Dock = DockStyle.Fill;
             settingsPassword.Location = new Point(3, 3);
             settingsPassword.Name = "settingsPassword";
+            settingsPassword.PasswordChar = '*';
             settingsPassword.Size = new Size(374, 27);
             settingsPassword.TabIndex = 4;
             settingsPassword.Visible = false;
@@ -268,6 +270,7 @@
             duplicatePassword.Dock = DockStyle.Fill;
             duplicatePassword.Location = new Point(3, 3);
             duplicatePassword.Name = "duplicatePassword";
+            duplicatePassword.PasswordChar = '*';
             duplicatePassword.Size = new Size(374, 27);
             duplicatePassword.TabIndex = 3;
             duplicatePassword.Visible = false;
@@ -303,6 +306,7 @@
             duplicateSettingsPassword.Dock = DockStyle.Fill;
             duplicateSettingsPassword.Location = new Point(3, 3);
             duplicateSettingsPassword.Name = "duplicateSettingsPassword";
+            duplicateSettingsPassword.PasswordChar = '*';
             duplicateSettingsPassword.Size = new Size(374, 27);
             duplicateSettingsPassword.TabIndex = 5;
             duplicateSettingsPassword.Visible = false;
@@ -313,6 +317,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(426, 253);
             Controls.Add(tableLayoutPanel1);
+            MaximumSize = new Size(444, 300);
+            MinimumSize = new Size(444, 300);
             Name = "PreviewForm";
             Text = "PreviewForm";
             tableLayoutPanel1.ResumeLayout(false);

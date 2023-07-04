@@ -10,8 +10,6 @@ namespace Prototip
         public PreviewForm()
         {
             InitializeComponent();
-
-
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -30,6 +28,8 @@ namespace Prototip
                 tableLayoutPanel1.RowStyles[3] = new RowStyle(SizeType.Absolute, 80F);
                 tableLayoutPanel1.RowStyles[4] = new RowStyle(SizeType.Absolute, 80F);
                 Size = new Size(444, 540);
+                MaximumSize = new Size(444, 540);
+                MinimumSize = new Size(444, 540);
             }
             else if (refreshButton.Text == "Авторизация")
             {
@@ -45,6 +45,8 @@ namespace Prototip
                 tableLayoutPanel1.RowStyles[3] = new RowStyle(SizeType.Absolute, 0F);
                 tableLayoutPanel1.RowStyles[4] = new RowStyle(SizeType.Absolute, 0F);
                 Size = new Size(444, 300);
+                MaximumSize = new Size(444, 300);
+                MinimumSize = new Size(444, 300);
             }
             errorLabel.Visible = false;
         }
