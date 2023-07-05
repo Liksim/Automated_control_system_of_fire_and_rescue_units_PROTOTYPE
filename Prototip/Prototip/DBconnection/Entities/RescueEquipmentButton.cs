@@ -19,8 +19,8 @@ namespace Prototip.DBconnection.Entities
             {Keys.F8, "F8"},
             {Keys.F9, "F9"},
             {Keys.F10, "F10"},
-            {Keys.F11, "F11"},
-            {Keys.F12, "F12"}
+            {Keys.F11, "F11"}/*,
+            {Keys.F12, "F12"}*/
         };
 
         public string Name { get; set; }

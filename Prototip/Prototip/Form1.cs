@@ -66,13 +66,13 @@ namespace Prototip
                 }
             }
 
-            if (Keys.Enter == (Keys)e.KeyValue)
+            if (Keys.F12 == (Keys)e.KeyValue)
             {
-                Enter_Click();
+                F12_Click();
             }
         }
 
-        private void Enter_Click()
+        private void F12_Click()
         {
             clearInfoLabels();
 
@@ -87,12 +87,15 @@ namespace Prototip
                 }
             }
 
-            buttonVoicing = buttonVoicing.Substring(0, buttonVoicing.Length - 2);
+            if (buttonVoicing.Length > 0)
+            {
+                buttonVoicing = buttonVoicing.Substring(0, buttonVoicing.Length - 2);
 
-            SoundPlayer alert = new SoundPlayer(globalSettingsRepository.Read(IdDepartment).AlertLocation);
-            alert.Play();
+                SoundPlayer alert = new SoundPlayer(globalSettingsRepository.Read(IdDepartment).AlertLocation);
+                alert.Play();
 
-            textToSpeech.textToSpeech(buttonVoicing);
+                textToSpeech.textToSpeech(buttonVoicing);
+            }
         }
 
         public void Select_Click(object sender, EventArgs e)
@@ -131,7 +134,7 @@ namespace Prototip
                 tableLayoutPanel13.Controls.Clear();
                 tableLayoutPanel13.ColumnCount = buttonsData.Count;
 
-                tableLayoutPanel14.RowStyles[0] = new RowStyle(SizeType.Absolute, 76F);
+                tableLayoutPanel14.RowStyles[0] = new RowStyle(SizeType.Absolute, 94F);
 
                 List<Button> RescueEquipmentButtons = new() { };
 

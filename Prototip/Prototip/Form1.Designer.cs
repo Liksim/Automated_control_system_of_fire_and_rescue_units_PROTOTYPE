@@ -66,6 +66,7 @@
             printLabel = new Label();
             tableLayoutPanel10 = new TableLayoutPanel();
             tableLayoutPanel13 = new TableLayoutPanel();
+            label4 = new Label();
             tableLayoutPanel12 = new TableLayoutPanel();
             tableLayoutPanel16 = new TableLayoutPanel();
             PPDsData = new DataGridView();
@@ -519,11 +520,13 @@
             tableLayoutPanel10.ColumnCount = 1;
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel10.Controls.Add(tableLayoutPanel13, 0, 0);
+            tableLayoutPanel10.Controls.Add(label4, 0, 1);
             tableLayoutPanel10.Dock = DockStyle.Fill;
             tableLayoutPanel10.Location = new Point(23, 3);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
-            tableLayoutPanel10.RowCount = 1;
+            tableLayoutPanel10.RowCount = 2;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 18F));
             tableLayoutPanel10.Size = new Size(981, 1);
             tableLayoutPanel10.TabIndex = 31;
             // 
@@ -539,6 +542,18 @@
             tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel13.Size = new Size(971, 1);
             tableLayoutPanel13.TabIndex = 32;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 7.5F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = SystemColors.WindowFrame;
+            label4.Location = new Point(224, -15);
+            label4.Name = "label4";
+            label4.Size = new Size(532, 16);
+            label4.TabIndex = 33;
+            label4.Text = "Нажмите «F12», чтобы включить сирену и озвучить выделенные отделения на выезд.";
             // 
             // tableLayoutPanel12
             // 
@@ -687,6 +702,7 @@
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             tableLayoutPanel10.ResumeLayout(false);
+            tableLayoutPanel10.PerformLayout();
             tableLayoutPanel12.ResumeLayout(false);
             tableLayoutPanel16.ResumeLayout(false);
             tableLayoutPanel16.PerformLayout();
@@ -743,5 +759,6 @@
         private TableLayoutPanel tableLayoutPanel12;
         private TableLayoutPanel tableLayoutPanel9;
         private TableLayoutPanel tableLayoutPanel10;
+        private Label label4;
     }
 }
