@@ -32,6 +32,8 @@ namespace Prototip
 
         private void printByPrinterButton_Click(object sender, EventArgs e)
         {
+            clearInfoLabels();
+
             Dictionary<string, string> data = new Dictionary<string, string>
             {
                 ["address"] = address.Text,
@@ -42,6 +44,8 @@ namespace Prototip
             };
 
             print.print(data, globalSettingsRepository.Read(IdDepartment).Name);
+
+            printLabel.Visible = true;
         }
 
         private List<Button> RescueEquipmentButtons;
@@ -65,6 +69,8 @@ namespace Prototip
 
         public void Select_Click(object sender, EventArgs e)
         {
+            clearInfoLabels();
+
             if (((Button)sender).BackColor == Color.OrangeRed)
             {
                 ((Button)sender).BackColor = Color.White;
@@ -77,6 +83,8 @@ namespace Prototip
 
         public void TextToSpeechButton_Click(object sender, EventArgs e)
         {
+            clearInfoLabels();
+
             string buttonVoicing = "";
 
             foreach (Button button in RescueEquipmentButtons)
@@ -97,10 +105,12 @@ namespace Prototip
             };
 
             textToSpeech.textToSpeech(data, globalSettingsRepository.Read(IdDepartment).AlertLocation);
+            voicingLabel.Visible = true;
         }
 
         private void Settings_Click(object sender, EventArgs e)
         {
+            clearInfoLabels();
             new Form2(this).Show();
         }
 
@@ -113,7 +123,7 @@ namespace Prototip
                 tableLayoutPanel13.Controls.Clear();
                 tableLayoutPanel13.ColumnCount = buttonsData.Count;
 
-                tableLayoutPanel14.RowStyles[0] = new RowStyle(SizeType.Absolute, 46F);
+                tableLayoutPanel14.RowStyles[0] = new RowStyle(SizeType.Absolute, 76F);
 
                 List<Button> RescueEquipmentButtons = new() { };
 
@@ -133,8 +143,25 @@ namespace Prototip
                     button.UseVisualStyleBackColor = true;
                     button.Click += Select_Click;
 
+                    Label label = new Label();
+                    label.Anchor = AnchorStyles.Top;
+                    label.AutoSize = true;
+                    label.ForeColor = Color.Navy;
+                    label.Location = new Point(465, 69);
+                    label.Name = buttonData.Name + "Label";
+                    label.Size = new Size(50, 20);
+                    label.TabIndex = 0;
+
+                    string labelText = "";
+                    if (buttonData.HotKey != "")
+                    {
+                        labelText = "«" + buttonData.HotKey + "»";
+                    }
+                    label.Text = labelText;
+
                     tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
                     tableLayoutPanel13.Controls.Add(button, buttonsData.IndexOf(buttonData), 0);
+                    tableLayoutPanel13.Controls.Add(label, buttonsData.IndexOf(buttonData), 1);
 
                     RescueEquipmentButtons.Add(button);
                 }
@@ -145,6 +172,7 @@ namespace Prototip
 
         private void clearAllButton_Click(object sender, EventArgs e)
         {
+            clearInfoLabels();
             address.Clear();
             typeOfIncident.Clear();
             fio.Clear();
@@ -158,6 +186,8 @@ namespace Prototip
 
         private void addressTextBox_Focus(object sender, EventArgs e)
         {
+            clearInfoLabels();
+
             var patternsArr = address.Text.Split(new char[] { ' ' });
 
             var patternsRawList = patternsArr.ToList();
@@ -211,6 +241,8 @@ namespace Prototip
 
         private void mailingButton_Click(object sender, EventArgs e)
         {
+            clearInfoLabels();
+
             string message = "";
 
             foreach (Button button in RescueEquipmentButtons)
@@ -241,25 +273,43 @@ namespace Prototip
                 "\r\n" + dateTimeValues[0] + " " + dateTimeValues[4] +
                 "\r\n" + $"https://yandex.ru/maps/38/volgograd/search/{address.Text.Replace(" ", "")}";
 
-
             _bot.Api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams()
             {
                 Message = message,
                 PeerId = 2000000010,
                 RandomId = Environment.TickCount
             });
+
+            mailingLabel.Visible = true;
         }
 
         private void mapButton_Click(object sender, EventArgs e)
         {
-            string addressStr = address.Text.Replace(" ", "");
+            clearInfoLabels();
 
-            Process.Start(new ProcessStartInfo
+            if (address.Text.Length > 0)
             {
-                FileName = "cmd",
-                Arguments = $"/c start https://yandex.ru/maps/38/volgograd/search/{addressStr}",
-                WindowStyle = ProcessWindowStyle.Hidden
-            });
+                string addressStr = address.Text.Replace(" ", "");
+
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start https://yandex.ru/maps/38/volgograd/search/{addressStr}",
+                    WindowStyle = ProcessWindowStyle.Hidden
+                });
+            }
+            else
+            {
+                mapLabel.Visible = true;
+            }
+        }
+
+        private void clearInfoLabels()
+        {
+            printLabel.Visible = false;
+            voicingLabel.Visible = false;
+            mapLabel.Visible = false;
+            mailingLabel.Visible = false;
         }
     }
 }

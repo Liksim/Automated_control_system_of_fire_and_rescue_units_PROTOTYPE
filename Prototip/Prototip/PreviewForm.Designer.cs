@@ -95,7 +95,7 @@
             login.Name = "login";
             login.Size = new Size(374, 27);
             login.TabIndex = 1;
-            login.Text = "test";
+            login.Text = "test4";
             // 
             // password
             // 
@@ -105,7 +105,7 @@
             password.PasswordChar = '*';
             password.Size = new Size(374, 27);
             password.TabIndex = 2;
-            password.Text = "password";
+            password.Text = "12345";
             // 
             // settingsPassword
             // 
