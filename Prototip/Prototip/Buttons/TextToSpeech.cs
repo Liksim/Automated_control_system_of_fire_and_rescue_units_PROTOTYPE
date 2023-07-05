@@ -5,12 +5,8 @@ namespace Prototip.Buttons
 {
     internal class TextToSpeech
     {
-        public void textToSpeech(Dictionary<string, string> data, string alertLocation) {
-            // нужен запуск от имени администратора и скачанный питон
-
-            SoundPlayer alert = new SoundPlayer(alertLocation);
-            alert.Play();
-            
+        public void textToSpeech(string text) {
+            // нужен запуск от имени администратора и скачанный питон                                
 
             using Process process = new Process();
 
@@ -18,7 +14,7 @@ namespace Prototip.Buttons
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
             var pythonPath = @"C:\Users\maksi\AppData\Local\Programs\Python\Python311\python.exe";
-            var args = "../../../textToSpeech.py \"" + data["buttonVoicing"] + ". " + data["address"] + ". " + data["typeOfIncident"] + "\"";
+            var args = "../../../textToSpeech.py \"" + text + "\"";
 
             process.StartInfo.FileName = pythonPath;
             process.StartInfo.Arguments = string.Format("{0}", args);

@@ -2,6 +2,7 @@
 using Prototip.DBconnection;
 using Prototip.DBconnection.Entities;
 using System.Diagnostics;
+using System.Media;
 using VkBotFramework;
 
 namespace Prototip
@@ -65,6 +66,33 @@ namespace Prototip
                 }
             }
 
+            if (Keys.Enter == (Keys)e.KeyValue)
+            {
+                Enter_Click();
+            }
+        }
+
+        private void Enter_Click()
+        {
+            clearInfoLabels();
+
+            string buttonVoicing = "";
+
+            foreach (Button button in RescueEquipmentButtons)
+            {
+                if (button.BackColor == Color.OrangeRed)
+                {
+                    buttonVoicing += button.Tag.ToString();
+                    buttonVoicing += ", ";
+                }
+            }
+
+            buttonVoicing = buttonVoicing.Substring(0, buttonVoicing.Length - 2);
+
+            SoundPlayer alert = new SoundPlayer(globalSettingsRepository.Read(IdDepartment).AlertLocation);
+            alert.Play();
+
+            textToSpeech.textToSpeech(buttonVoicing);
         }
 
         public void Select_Click(object sender, EventArgs e)
@@ -84,27 +112,7 @@ namespace Prototip
         public void TextToSpeechButton_Click(object sender, EventArgs e)
         {
             clearInfoLabels();
-
-            string buttonVoicing = "";
-
-            foreach (Button button in RescueEquipmentButtons)
-            {
-                if (button.BackColor == Color.OrangeRed)
-                {
-                    buttonVoicing += button.Tag.ToString();
-                    buttonVoicing += ", ";
-                }
-            }
-
-
-            Dictionary<string, string> data = new Dictionary<string, string>
-            {
-                ["address"] = address.Text,
-                ["typeOfIncident"] = typeOfIncident.Text,
-                ["buttonVoicing"] = buttonVoicing
-            };
-
-            textToSpeech.textToSpeech(data, globalSettingsRepository.Read(IdDepartment).AlertLocation);
+            textToSpeech.textToSpeech(address.Text + " " + typeOfIncident.Text);
             voicingLabel.Visible = true;
         }
 
