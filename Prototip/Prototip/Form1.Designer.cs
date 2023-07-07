@@ -34,7 +34,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             address = new TextBox();
             label2 = new Label();
-            typeOfIncident = new TextBox();
             label3 = new Label();
             label7 = new Label();
             label8 = new Label();
@@ -43,6 +42,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             details = new TextBox();
             label1 = new Label();
+            typeOfIncident = new ComboBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             dateOfReceipt = new DateTimePicker();
@@ -114,16 +114,6 @@
             label2.Size = new Size(193, 20);
             label2.TabIndex = 2;
             label2.Text = "Место пожара (ЧС), адрес:";
-            // 
-            // typeOfIncident
-            // 
-            typeOfIncident.Dock = DockStyle.Fill;
-            typeOfIncident.Location = new Point(3, 242);
-            typeOfIncident.Margin = new Padding(3, 4, 3, 4);
-            typeOfIncident.Name = "typeOfIncident";
-            typeOfIncident.Size = new Size(457, 27);
-            typeOfIncident.TabIndex = 5;
-            typeOfIncident.Text = "Горит частный дом";
             // 
             // label3
             // 
@@ -218,6 +208,15 @@
             label1.Size = new Size(225, 20);
             label1.TabIndex = 5;
             label1.Text = "Дополнительная информация:";
+            // 
+            // typeOfIncident
+            // 
+            typeOfIncident.Dock = DockStyle.Fill;
+            typeOfIncident.FormattingEnabled = true;
+            typeOfIncident.Location = new Point(3, 241);
+            typeOfIncident.Name = "typeOfIncident";
+            typeOfIncident.Size = new Size(457, 28);
+            typeOfIncident.TabIndex = 6;
             // 
             // tableLayoutPanel2
             // 
@@ -549,9 +548,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 7.5F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.WindowFrame;
-            label4.Location = new Point(224, -15);
+            label4.Location = new Point(229, -17);
             label4.Name = "label4";
-            label4.Size = new Size(532, 16);
+            label4.Size = new Size(522, 17);
             label4.TabIndex = 33;
             label4.Text = "Нажмите «F12», чтобы включить сирену и озвучить выделенные отделения на выезд.";
             // 
@@ -716,7 +715,6 @@
         #endregion
         public TextBox address;
         private Label label2;
-        private TextBox typeOfIncident;
         private Label label3;
         private Label label7;
         private Label label8;
@@ -760,5 +758,6 @@
         private TableLayoutPanel tableLayoutPanel9;
         private TableLayoutPanel tableLayoutPanel10;
         private Label label4;
+        private ComboBox typeOfIncident;
     }
 }

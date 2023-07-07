@@ -18,6 +18,7 @@ namespace Prototip
         Repository<PPDType> PPDTypeRepository = new Repository<PPDType>(ContextManager.GetContext());
         Repository<Department> departmentRepository = new Repository<Department>(ContextManager.GetContext());
         Repository<GlobalSettings> globalSettingsRepository = new Repository<GlobalSettings>(ContextManager.GetContext());
+        Repository<TypeOfIncident> typeOfIncidentRepository = new Repository<TypeOfIncident>(ContextManager.GetContext());
 
         public Form1(PreviewForm previewForm, int idDepartment)
         {
@@ -29,7 +30,8 @@ namespace Prototip
             _bot = new VkBot(AccessToken, GroupUrl);
             IdDepartment = idDepartment;
             AddRescueEquipmentButtons();
-        }
+            AddTypesOfIncident();
+        }             
 
         private void printByPrinterButton_Click(object sender, EventArgs e)
         {
@@ -181,11 +183,20 @@ namespace Prototip
             }
         }
 
+        public void AddTypesOfIncident()
+        {
+            typeOfIncident.Items.Clear();
+            foreach(TypeOfIncident typeOfIncidentFromDB in typeOfIncidentRepository.Read().Where(x => x.IdGlobalSettings == IdDepartment))
+            {
+                typeOfIncident.Items.Add(typeOfIncidentFromDB.Name);
+            }
+        }
+
         private void clearAllButton_Click(object sender, EventArgs e)
         {
             clearInfoLabels();
             address.Clear();
-            typeOfIncident.Clear();
+            typeOfIncident.Text = "";
             fio.Clear();
             number.Clear();
             dateOfReceipt.ResetText();

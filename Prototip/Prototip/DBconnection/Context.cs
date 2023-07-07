@@ -19,6 +19,7 @@ namespace Prototip.DBconnection
         public DbSet<PPDType> PPDTypes { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<GlobalSettings> GlobalSettings { get; set; }
+        public DbSet<TypeOfIncident> TypesOfIncident { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
