@@ -102,10 +102,11 @@ namespace Prototip
             for (int i = 0; i < buttons.Count; i++)
             {
                 ButtonsData.Rows.Add();
-                ButtonsData.Rows[i].Cells[0].Value = buttons[i].Id;
+                ButtonsData.Rows[i].Cells[0].Value = i + 1;
                 ButtonsData.Rows[i].Cells[1].Value = buttons[i].Name;
                 ButtonsData.Rows[i].Cells[2].Value = buttons[i].Voicing;
                 ButtonsData.Rows[i].Cells[3].Value = buttons[i].HotKey;
+                ButtonsData.Rows[i].Tag = buttons[i].Id;
             }
 
             form1.AddRescueEquipmentButtons();
@@ -116,14 +117,21 @@ namespace Prototip
             AddErrorLabel.Visible = false;
             DeleteErrorLabel.Visible = false;
 
-            if (ButtonId.Text == "")
+            var selectedCells = ButtonsData.SelectedCells;
+            List<int> IDsForDelete = new List<int>();
+
+            for (int i = 0; i < selectedCells.Count; i++)
             {
-                DeleteErrorLabel.Text = "Введите ID!";
-                DeleteErrorLabel.Visible = true;
-                return;
+                IDsForDelete.Add((int)selectedCells[i].OwningRow.Tag);
             }
 
-            rescueEquipmentButtonRepository.Delete(Int32.Parse(ButtonId.Text));
+            IDsForDelete = IDsForDelete.Distinct().ToList();
+
+            foreach (int ID in IDsForDelete)
+            {
+                rescueEquipmentButtonRepository.Delete(ID);
+            }
+
             reloadRescueEquipmentButtons();
         }
 

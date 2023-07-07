@@ -42,15 +42,12 @@ namespace Prototip
             HotKeyColumn = new DataGridViewTextBoxColumn();
             AddErrorLabel = new Label();
             deleteButton = new Button();
-            ButtonId = new TextBox();
-            label3 = new Label();
             DeleteErrorLabel = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel7 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel6 = new TableLayoutPanel();
-            tableLayoutPanel5 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel8 = new TableLayoutPanel();
             label4 = new Label();
@@ -80,7 +77,6 @@ namespace Prototip
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
-            tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -213,24 +209,6 @@ namespace Prototip
             deleteButton.UseVisualStyleBackColor = true;
             deleteButton.Click += deleteButton_Click;
             // 
-            // ButtonId
-            // 
-            ButtonId.Anchor = AnchorStyles.None;
-            ButtonId.Location = new Point(29, 44);
-            ButtonId.Name = "ButtonId";
-            ButtonId.Size = new Size(170, 27);
-            ButtonId.TabIndex = 9;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.None;
-            label3.AutoSize = true;
-            label3.Location = new Point(33, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(161, 20);
-            label3.TabIndex = 10;
-            label3.Text = "ID удаляемой кнопки:";
-            // 
             // DeleteErrorLabel
             // 
             DeleteErrorLabel.Anchor = AnchorStyles.None;
@@ -266,7 +244,6 @@ namespace Prototip
             tableLayoutPanel7.Controls.Add(tableLayoutPanel2, 0, 0);
             tableLayoutPanel7.Controls.Add(tableLayoutPanel3, 0, 1);
             tableLayoutPanel7.Controls.Add(tableLayoutPanel6, 0, 5);
-            tableLayoutPanel7.Controls.Add(tableLayoutPanel5, 0, 4);
             tableLayoutPanel7.Controls.Add(tableLayoutPanel4, 0, 3);
             tableLayoutPanel7.Controls.Add(tableLayoutPanel8, 0, 2);
             tableLayoutPanel7.Dock = DockStyle.Fill;
@@ -326,21 +303,6 @@ namespace Prototip
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel6.Size = new Size(228, 80);
             tableLayoutPanel6.TabIndex = 17;
-            // 
-            // tableLayoutPanel5
-            // 
-            tableLayoutPanel5.ColumnCount = 1;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Controls.Add(label3, 0, 0);
-            tableLayoutPanel5.Controls.Add(ButtonId, 0, 1);
-            tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 335);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 2;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Size = new Size(228, 77);
-            tableLayoutPanel5.TabIndex = 16;
             // 
             // tableLayoutPanel4
             // 
@@ -632,8 +594,6 @@ namespace Prototip
             tableLayoutPanel3.PerformLayout();
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel6.PerformLayout();
-            tableLayoutPanel5.ResumeLayout(false);
-            tableLayoutPanel5.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             tableLayoutPanel8.ResumeLayout(false);
